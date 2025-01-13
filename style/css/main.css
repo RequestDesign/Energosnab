@@ -248,6 +248,7 @@ section {
 .logo img {
   object-fit: contain;
 }
+
 .header-content {
   display: flex;
   align-items: flex-start;
@@ -282,17 +283,15 @@ section {
 .header-link_section {
   width: 15rem;
   border: 1px solid rgba(56, 60, 64, 1);
-  position: relative; /* Для позиционирования */
+  position: relative; 
   text-align: center;
   padding: 1.134rem 0;
   border-radius: 1.4rem;
   transition: background-color 0.3s ease;
 }
-
 .header-link_option {
-  display: none; /* Скрываем по умолчанию */
+  display: none; 
 }
-
 .header-link_section-title {
   cursor: pointer;
   transition: border-color 0.3s;
@@ -310,7 +309,11 @@ section {
   background: white;
   color: rgba(6, 11, 16, 1);
 }
-
+.header-content_links-block{
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
 /* btn */
 .btn-application {
   position: relative;
@@ -402,6 +405,47 @@ main {
   object-fit: cover;
   border-radius: 1.4rem;
 }
+.block-black {
+  position: relative; 
+  top: 0;
+  left: 0;
+  background: rgba(6, 11, 16, 1);
+  width: 42rem;
+  height: 12rem;
+  z-index: 2;
+  border-radius: 1.4rem; 
+}
+
+.block-black::before,
+.block-black::after {
+  content: '';
+  position: absolute;
+  background: rgba(6, 11, 16, 1); 
+  border-radius: 1.4rem; 
+}
+
+.block-black::before {
+  top: -1.4rem; 
+  right: -1.4rem; 
+  width: 2.8rem; 
+  height: 2.8rem; 
+  clip-path: polygon(0% 0%, 0% 220%, 60% 60%, 100% 40%, 60% 0% );
+}
+
+.block-black::after {
+  bottom: -1.4rem; 
+  left: -1.4rem; 
+  width: 2.8rem; 
+  height: 2.8rem;
+  clip-path: polygon(0% 0%, 0% 220%, 60% 60%, 100% 40%, 60% 0% );
+
+}
+
+@media (min-width:2000px) {
+  .block-black{
+    display: none;
+  }
+}
 .main-baner_container {
   display: flex;
   justify-content: center;
@@ -442,7 +486,12 @@ main {
 .header-burger {
   display: none;
 }
-
+.burgar-btn_close{
+  display: none;
+}
+.burger-btn{
+  display: none;
+}
 @media (max-width: 48em) {
   .header {
     top: 2rem;
@@ -456,8 +505,48 @@ main {
   .header-content {
     align-items: center;
   }
+  .burger-btn{
+    display: flex;
+  }
   .header-content_links {
-    display: none;
+    overflow: hidden;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    gap: 1rem;
+    position: fixed;
+    top: 0;
+    left: -100%; 
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(16, 16, 16, 1);
+    transition: left 0.3s ease;
+    padding: 2vh 4.267vw 40px 4.267vw;
+    z-index: 7;
+    overflow-y: auto;
+  }
+  .header-content_links-block{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    gap: 1rem;
+    height: 50rem;
+  }
+  .header-content_links.open {
+    left: 0; 
+  }
+  
+  .burgar-btn_close{
+    display: flex;
+    position: absolute;
+    top: 4rem;
+    right: 4rem;
+  }
+  .burgar-btn_close svg{
+    width: 5rem;
+    height: 5rem;
   }
   .header .btn-application {
     display: none;
@@ -466,6 +555,17 @@ main {
     display: flex;
     width: 7.5rem;
     height: 7.5rem;
+  }
+  .header-link{
+    width: 30rem;
+    height: 10rem;
+    border-radius: 2.8rem;
+  }
+  .header-link_section{
+    width: 30rem;
+    max-height: 41rem;
+    padding: 3rem 0;
+    border-radius: 2.8rem;
   }
   .main-banner {
     margin: 2rem 2rem 20rem 2rem;
@@ -527,11 +627,10 @@ main {
   top: 50rem;
 }
 .line-number2 {
-  width: 60%;
-  height: 75vw;
+  width: 118rem;
+  height: 196.5rem;
   position: absolute;
-  top: -70vh;
-  display: none;
+  top: -111rem;
 }
 .main-portfolio_top {
   display: flex;
@@ -747,6 +846,20 @@ main {
     top: -10rem;
     z-index: -1;
   }
+  .fon-spot_portfolio{
+    left: 70rem;
+  }
+  .main-numbers{
+    display: flex;
+    width: 100%;
+  }
+  .line-number2{
+
+    position: absolute;
+    left: 32rem;
+    top: -110rem;
+    z-index: -1;
+  }
 }
 
 @media (max-width: 48em) {
@@ -806,6 +919,9 @@ main {
   }
   .text-rigth {
     text-align: right;
+  }
+  .line-number2{
+    display: none;
   }
 }
 /* services */

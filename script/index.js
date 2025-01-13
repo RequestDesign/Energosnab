@@ -136,4 +136,13 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  document.querySelector('.burger-btn').addEventListener('click', function() {
+    const menu = document.querySelector('.header-content_links');
+    menu.classList.toggle('open');
+  });
+  document.querySelector('.burgar-btn_close').addEventListener('click', function() {
+    const menu = document.querySelector('.header-content_links');
+    menu.classList.remove('open');
+  });
 });
