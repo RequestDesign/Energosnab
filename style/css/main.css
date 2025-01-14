@@ -750,7 +750,7 @@ main {
 }
 @media (max-width: 48em) {
   .fon-spot_portfolio {
-    left: -36rem;
+    display: none;
   }
   .line-number {
     top: 106rem;
