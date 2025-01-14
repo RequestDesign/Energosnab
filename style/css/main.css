@@ -344,7 +344,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("/assest/image/btn/пятна.png");
+  background-image: url("../../assest/image/btn/пятна.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
