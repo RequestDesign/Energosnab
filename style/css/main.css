@@ -740,11 +740,11 @@ main {
   transform: scaleX(-1);
 }
 #prevBtn {
-  background: url(/assest/image/main/portfolio/пятна-btn.png) no-repeat top /
+  background: url(../../assest/image/main/portfolio/пятна-btn.png) no-repeat top /
     cover;
 }
 #nextBtn {
-  background: url(/assest/image/main/portfolio/пятна-btn.png) no-repeat top /
+  background: url(../../assest/image/main/portfolio/пятна-btn.png) no-repeat top /
     cover;
   transform: scaleX(-1);
 }
@@ -868,6 +868,9 @@ main {
     width: 100%;
   }
   .line-number2{
+    display: none;
+    width: 0;
+    height: 0;
     position: absolute;
     left: 32rem;
     top: -110rem;
