@@ -176,6 +176,16 @@ section {
   font-size: 1.6rem;
   line-height: 140%;
 }
+.txt24{
+  font-family: "Mont";
+  font-weight: 600;
+  font-size: 2.4rem;
+}
+.txt20{
+  font-family: "Mont";
+  font-weight: 600;
+  font-size: 2.0rem;
+}
 .txt18 {
   font-family: "Mont";
   font-weight: 600;
@@ -210,6 +220,9 @@ section {
   .h3 {
     font-size: 3.6rem;
     line-height: 120%;
+  }
+  .txt24{
+    font-size: 3.6rem;
   }
   .txt18-sem {
     font-size: 2.8rem;
@@ -532,7 +545,7 @@ main {
     align-items: center;
     align-content: center;
     gap: 1rem;
-    height: 50rem;
+    max-height: 150rem;
   }
   .header-content_links.open {
     left: 0; 
@@ -631,6 +644,7 @@ main {
   height: 196.5rem;
   position: absolute;
   top: -111rem;
+  z-index: -1;
 }
 .main-portfolio_top {
   display: flex;
@@ -854,11 +868,9 @@ main {
     width: 100%;
   }
   .line-number2{
-
     position: absolute;
     left: 32rem;
     top: -110rem;
-    z-index: -1;
   }
 }
 
@@ -1648,6 +1660,261 @@ footer {
     gap: 2.4rem;
   }
 }
+/* catalog */
+.main-way{
+  margin-top: 13.4rem;
+  margin-bottom: 1.2rem;
+}
+.main-catalog{
+  margin-bottom: 10rem;
+}
+.main-way_content{
+  display: flex;
+  gap: 1rem;
+  color: rgba(155, 157, 159, 1);
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+.catalog-content_bottom{
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+.catalog-content_btn{
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 5.5rem;
+  padding: 0 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 1);
+  border-radius: 1.4rem;
+}
+.catalog-content_btn-active{
+  background: url("../../assest/image/catalog/пятн.png") no-repeat top /
+  cover;
+}
+.main-catalog_content{
+  display: grid;
+  gap: 4rem;
+}
+.main-product_content-bottom{
+  display: flex;
+  justify-content: center;
+}
+.main-product_content{
+  display: grid;
+  gap: 4rem;
+}
+.main-product_content-main{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+.product_content-item{
+  width: 40rem;
+  height: 55.7rem;
+  border-radius: 2.4rem;
+  border: 1px solid rgba(56, 60, 64, 1);
+
+}
+.product_content-item_image{
+  background: rgba(0, 0, 0, 1);
+  height: 40rem;
+  border-radius: 2.4rem 2.4rem 0 0;
+  overflow: hidden;
+}
+.product-image{
+  width: auto;
+  height: 40rem;
+}
+.product_content-item_block .product_content-item_block-title{
+  margin: 2.4rem 2.4rem 1.6rem 2.4rem;
+  height: 4.8rem;
+}
+.product_content-item_block .portfolio-item_btn{
+  padding: 1.6rem 2.4rem 2.4rem 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.product_content-item:hover .arr-port_svg{
+  transform: rotate(90deg);
+}
+.main-description_content{
+  display: flex;
+  gap: 4rem;
+}
+.description_content-line_title{
+  color: rgba(224, 138, 18, 1);
+}
+.main-description_content-bottom{
+  width: 69.3rem;
+  height: 36.1rem;
+  border-radius: 2.4rem;
+  border: 1px solid rgba(56, 60, 64, 1)
+}
+.main-description_content-bottom_line{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.4rem;
+}
+.description_content-line_text{
+  text-align: right;
+  width: 29rem;
+}
+.text-ul_orange::marker{
+  color: rgba(224, 138, 18, 1);
+}
+.description_content-top_title{
+  width: 93.7rem;
+}
+.main-description_content-top{
+  width: 98.7rem;
+  display: grid;
+  gap: 3.2rem;
+}
+.description_content-top_text{
+  display: grid;
+  gap: 1.6rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+.description_content-top_text-ul{
+  display: grid;
+  gap: 1.6rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+.top_text-ul{
+  display: grid;
+  gap: 1.2rem;
+}
+.main-request_content{
+  display: flex;
+  justify-content: space-between;
+  padding: 4rem;
+  border: 1px solid rgba(56, 60, 64, 1);
+  border-radius: 2.4rem;
+  background: url("../../assest/image/catalog/пятно3.png") no-repeat;
+}
+.main-request_content-bottom{
+  width: 84rem;
+}
+.main-request_content-top{
+  display: grid;
+  gap: 2.4rem;
+  height: fit-content;
+}
+.main-request_content-bottom .form-textarea{
+  height: 5.5rem;
+}
+.request_content-top_text{
+  width: 31.8rem;
+  color: rgb(199, 201, 203);
+}
+@media (max-width:48em) {
+  .main-way{
+    margin-top: 15.5rem;
+    margin-bottom: 4rem;
+  }
+  .main-catalog_content{
+    gap: 3.2rem;
+  }
+  .main-catalog{
+    margin-bottom: 12.8rem;
+  }
+  .main-way_content{
+    gap: .8rem;
+    font-size: 2.8rem;
+  }
+  .catalog-content_btn{
+    font-size: 2.8rem;
+  }
+  .catalog-content_bottom{
+    flex-wrap: wrap;
+    gap: 1.4rem;
+  }
+  .content-link_active{
+    color: white;
+  }
+  .catalog-content_btn{
+    height: 7.2rem;
+    border-radius: 2rem;
+  }
+  .main-product_content-main{
+    gap: 1.8rem;
+  }
+  .product_content-item{
+    width: 34.6rem;
+    height: 65.0rem;
+    border-radius: 3.2rem;
+  }
+  .product-image{
+    width: 34.6rem;
+    height: 34.6rem;
+  }
+  .product_content-item_image{
+    height: 34.6rem;
+    border-radius: 2rem 2rem 0 0; 
+  }
+  .product_content-item_block .product_content-item_block-title{
+    height: 12.8rem;
+    margin: 3.2rem 2rem;
+  }
+  .product_content-item_block .portfolio-item_btn{
+    padding: 3.2rem 2rem;
+  }
+  .main-description_content{
+    display: grid;
+    gap: 8rem;
+  }
+  .main-description_content-top{
+    width: 100%;
+  }
+  .description_content-top_title{
+    width: 100%;
+  }
+  .description_content-top_text-ul{
+    font-size: 3.6rem;
+  }
+  .main-description_content-bottom{
+    height: auto;
+    width: 71rem;
+  }
+  .description_content-line_text{
+    width: 48.8rem;
+  }
+  .main-description_content-bottom_line{
+    height: fit-content;
+    padding: 4.6rem 3.2rem;
+  }
+  .description_content-top_text{
+    gap: 3.2rem;
+  }
+  .main-request_content{
+    display: grid;
+    gap: 6.4rem;
+  }
+  .main-request_content .main-request_content-bottom .form-input{
+    width: 63rem;
+  }
+  .main-request_content-bottom {
+    width: 63rem;
+  }
+  .main-request_content-bottom .form-textarea{
+    width: 63rem;
+    height: 22rem;
+  }
+  .main-request_content-bottom .checkbox-input{
+    height: 4rem;
+  }
+  .main-request_content{
+    background: url("../../assest/image/catalog/пятно3-rigth.png") no-repeat  right;
+  }
+  .main-request_content-bottom  .request-form_bottom{
+    gap: 6.4rem;
+  }
+}
+
 
 .main-portfolio .swiper-slide {
   width: auto;

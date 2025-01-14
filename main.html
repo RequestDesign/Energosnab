@@ -542,8 +542,8 @@
                             </div>
                             <form action="" method="post" class="contacts-main_request-form">
                                 <div class="request-form_line">
-                                    <input class="form-input txt16" type="text" name="name" id="name" placeholder="Имя">
-                                    <input class="form-input txt16" type="tel" name="tel" id="tel" placeholder="Телефон">
+                                    <input class="form-input txt16" type="text" name="name" id="name" placeholder="Имя" required>
+                                    <input class="form-input txt16" type="tel" name="tel" id="tel" placeholder="Телефон" required>
                                 </div>
                                 <textarea class="form-textarea txt16" name="textarea" id="textarea" placeholder="Комментарий"></textarea>
                                 <div class="request-form_bottom">
@@ -555,7 +555,7 @@
                                         </span>
                                     </button>
                                     <div class="checkbox-block">
-                                        <input class="checkbox-input" type="checkbox" name="agree" id="agree" >
+                                        <input class="checkbox-input" type="checkbox" name="agree" id="agree" required>
                                         <label for="agree">Я согласен на обработку персональных данных</label>
                                     </div>
                                     
@@ -698,7 +698,6 @@
             </div>
         </div>
     </footer>
-
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script/index.js"></script>
