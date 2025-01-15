@@ -188,27 +188,20 @@ document.addEventListener("DOMContentLoaded", function () {
     activeButton.classList.add("productcard-btn_active");
   }
 
-  const stripContainer = document.getElementById("stripContainer");
-  if (stripContainer) {
-    const strip = document.getElementById("strip");
-    const movingText = document.getElementById("movingText");
+  const strip = document.getElementById("strip");
+  const movingText = document.getElementById("movingText");
 
-    // Дублируем содержимое movingText
-    const clone = movingText.cloneNode(true);
-    strip.appendChild(clone);
+  movingText.innerHTML += movingText.innerHTML;
 
-    // Устанавливаем ширину strip в зависимости от содержимого
-    const totalWidth = movingText.scrollWidth;
-    strip.style.width = `${totalWidth}px`;
-
-    // Функция для настройки анимации
-    function setAnimationDuration() {
-      const speed = 30; // Скорость прокрутки в секундах
-      const distance = totalWidth; // Расстояние для прокрутки
-      const animationDuration = distance / (totalWidth / speed) + "s";
-      strip.style.animationDuration = animationDuration;
-    }
-
-    setAnimationDuration();
+  const totalWidth = movingText.scrollWidth;
+  strip.style.width = `${totalWidth}px`; 
+  function setAnimationDuration() {
+    const speed = window.innerWidth <= 48 * 16 ? 30 : 30; 
+    const distance = totalWidth;
+    const animationDuration = distance / (totalWidth / speed) + "s"; 
+    strip.style.animationDuration = animationDuration; 
   }
+
+  setAnimationDuration();
+  window.addEventListener("resize", setAnimationDuration);
 });

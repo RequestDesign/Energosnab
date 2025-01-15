@@ -1001,7 +1001,7 @@ main {
     display: grid;
     gap: 2rem;
   }
-  
+
   .services-main_item {
     width: 71rem;
     height: auto;
@@ -1217,8 +1217,8 @@ main {
 }
 
 .image-moving {
-  height: fit-content;
-  width: fit-content;
+  width: auto;
+  height: 100%;
 }
 
 @keyframes scrollText {
@@ -1236,12 +1236,31 @@ main {
   }
   .brands-content_title {
     margin: 0;
-    width: 100%;
+    width: 71rem;
   }
   .moving-text {
-    animation: scrollText 7s linear infinite;
     width: auto;
-    gap: 6svg-clorem;
+    gap: 6rem;
+  }
+  .main-brands_content {
+    justify-content: left;
+  }
+  .main-brands_content-top {
+    justify-content: left;
+  }
+  .image-moving {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @keyframes scrollText {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 }
 
