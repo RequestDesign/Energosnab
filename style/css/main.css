@@ -1668,7 +1668,7 @@ footer {
 /* catalog */
 .main-way {
   margin-top: 13.4rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 2.4rem;
 }
 .main-catalog {
   margin-bottom: 10rem;
@@ -1942,7 +1942,8 @@ footer {
 }
 .image-tovara {
   width: 54.7rem;
-  /* height: 40rem; */
+  height: 40rem;
+  object-fit: cover;
 }
 .productcard-top_description {
   width: 54.6rem;
@@ -2085,6 +2086,13 @@ footer {
 .productcard-bottom_right .btn-application{
   order: 2;
 }
+.main-productcard_content-bottom .main-request_content-bottom{
+  width: 76rem;
+}
+.main-productcard_content-bottom .form-input{
+  width: 36rem;
+}
+
 #description .left-specifications_content-line_text:after{
   display: none;
 }
@@ -2097,6 +2105,9 @@ footer {
     width: 100%;
   }
   .productcard-bottom_right .form-input{
+    width: 63rem;
+  }
+  .main-productcard_content-bottom .main-request_content-bottom{
     width: 63rem;
   }
   .line-text_fication-span{
