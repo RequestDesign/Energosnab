@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
           item.classList.add("working-block_active");
           const svgUp = topItem.querySelector(".arrow-drop-up");
           const svgDown = topItem.querySelector(".arrow-drop-down");
-          svgUp.style.display = "block"; 
-          svgDown.style.display = "none"; 
+          svgUp.style.display = "block";
+          svgDown.style.display = "none";
         }
       });
     });
@@ -137,12 +137,47 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  document.querySelector('.burger-btn').addEventListener('click', function() {
-    const menu = document.querySelector('.header-content_links');
-    menu.classList.toggle('open');
+  document.querySelector(".burger-btn").addEventListener("click", function () {
+    const menu = document.querySelector(".header-content_links");
+    menu.classList.toggle("open");
   });
-  document.querySelector('.burgar-btn_close').addEventListener('click', function() {
-    const menu = document.querySelector('.header-content_links');
-    menu.classList.remove('open');
-  });
+  document
+    .querySelector(".burgar-btn_close")
+    .addEventListener("click", function () {
+      const menu = document.querySelector(".header-content_links");
+      menu.classList.remove("open");
+    });
+
+    
+  const btnSpecifications = document.getElementById("btn-specifications");
+  const btnDescription = document.getElementById("btn-description");
+  const specificationsBlock = document.getElementById("specifications");
+  const descriptionBlock = document.getElementById("description");
+  if (
+    btnSpecifications &&
+    btnDescription &&
+    specificationsBlock &&
+    descriptionBlock
+  ) {
+    btnSpecifications.addEventListener("click", function () {
+      toggleContent("specifications");
+      setActiveButton(btnSpecifications, btnDescription);
+    });
+
+    btnDescription.addEventListener("click", function () {
+      toggleContent("description");
+      setActiveButton(btnDescription, btnSpecifications);
+    });
+  }
+
+  function toggleContent(contentType) {
+    document.getElementById("specifications").style.display = "none";
+    document.getElementById("description").style.display = "none";
+    document.getElementById(contentType).style.display = "grid";
+  }
+
+  function setActiveButton(activeButton, inactiveButton) {
+    inactiveButton.classList.remove("productcard-btn_active");
+    activeButton.classList.add("productcard-btn_active");
+  }
 });
