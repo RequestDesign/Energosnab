@@ -309,7 +309,10 @@ section {
   cursor: pointer;
   transition: border-color 0.3s;
 }
-
+.header-link_section:active .header-link_option {
+  display: grid;
+  padding-top: 1.5rem;
+}
 .header-link_section:hover .header-link_option {
   display: grid;
   padding-top: 1.5rem;
@@ -998,6 +1001,7 @@ main {
     display: grid;
     gap: 2rem;
   }
+  
   .services-main_item {
     width: 71rem;
     height: auto;
@@ -1105,6 +1109,9 @@ main {
     gap: 8.4rem;
     justify-items: center;
   }
+  .working-block_item-text {
+    width: 100%;
+  }
   .main-working_content {
     gap: 4.8rem;
   }
@@ -1126,9 +1133,15 @@ main {
     font-size: 3rem;
   }
   .services-item_top-block {
+    width: 11rem;
+    height: 9.6rem;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .services-svg {
+    width: 4rem;
+    height: 7rem;
   }
   .services-item_top-title {
     width: 100%;
@@ -1176,6 +1189,7 @@ main {
 }
 .main-brands_content {
   display: grid;
+  justify-content: center;
   gap: 14rem;
 }
 
@@ -1188,37 +1202,31 @@ main {
   align-items: center;
   width: 100%;
 }
+
 .strip {
-  position: absolute;
-  width: 100%;
+  gap: 11rem;
   display: flex;
-  align-items: center;
-  overflow: hidden;
+  white-space: nowrap;
+  animation: scrollText linear infinite;
 }
-.blue-strip {
-  width: 100%;
-}
+
 .moving-text {
   display: flex;
   align-items: center;
   gap: 11rem;
-  text-transform: uppercase;
-  font-family: "Floreste Wavy", sans-serif;
-  white-space: nowrap;
-  font-size: 40px;
-  color: rgba(255, 255, 255, 1);
-  animation: scrollText 10s linear infinite;
 }
+
 .image-moving {
-  height: 70%;
-  width: auto;
+  height: fit-content;
+  width: fit-content;
 }
+
 @keyframes scrollText {
   from {
     transform: translateX(0%);
   }
   to {
-    transform: translateX(-30%);
+    transform: translateX(-50%);
   }
 }
 
@@ -1395,8 +1403,8 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 24px;
+  height: 24px;
   border-radius: 0.2rem;
   border: 1px solid rgba(255, 255, 255, 1);
   appearance: none;
@@ -1404,6 +1412,8 @@ main {
   background: rgba(6, 11, 16, 1);
   box-shadow: inset 0 0 5px rgb(0 0 0 / 0.2);
   transition: 500ms;
+  outline: none;
+  overflow: hidden;
 }
 .checkbox-input:checked {
   background: rgba(6, 11, 16, 1);
@@ -1411,11 +1421,16 @@ main {
 .checkbox-input::after {
   content: "";
   position: absolute;
-  width: 1rem;
-  height: 0.8rem;
+  top: 34%;
+  left: 30%;
+  width: 10px;
+  height: 7px;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='7' viewBox='0 0 10 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M3.41445 5.47216L8.88627 0.187083C9.0154 0.0623609 9.16884 0 9.34661 0C9.52438 0 9.67761 0.0623609 9.80631 0.187083C9.93544 0.311804 10 0.460015 10 0.631715C10 0.803415 9.93544 0.951418 9.80631 1.07572L3.8664 6.81292C3.73727 6.93764 3.58662 7 3.41445 7C3.24228 7 3.09163 6.93764 2.9625 6.81292L0.186243 4.1314C0.0571146 4.00668 -0.00486715 3.85847 0.000297988 3.68677C0.00546312 3.51507 0.0728249 3.36707 0.202384 3.24276C0.331512 3.11804 0.48496 3.05568 0.662727 3.05568C0.840493 3.05568 0.993726 3.11804 1.12242 3.24276L3.41445 5.47216Z' fill='white'/%3e%3c/svg%3e ");
   background-repeat: no-repeat;
   transition: 500ms;
+  transition: opacity 0.3s ease;
+}
+.checkbox-input:not(:checked)::after {
   opacity: 0;
 }
 .checkbox-input:checked::after {
@@ -1471,8 +1486,15 @@ main {
     font-size: 2.8rem;
   }
   .checkbox-input {
-    width: 5.5rem;
-    height: 4.8rem;
+    width: 7.4vw;
+    height: 6.4vw;
+  }
+  .checkbox-input::after {
+    width: 3vw;
+    height: 3vw;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg viewBox='0 0 10 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M3.41445 5.47216L8.88627 0.187083C9.0154 0.0623609 9.16884 0 9.34661 0C9.52438 0 9.67761 0.0623609 9.80631 0.187083C9.93544 0.311804 10 0.460015 10 0.631715C10 0.803415 9.93544 0.951418 9.80631 1.07572L3.8664 6.81292C3.73727 6.93764 3.58662 7 3.41445 7C3.24228 7 3.09163 6.93764 2.9625 6.81292L0.186243 4.1314C0.0571146 4.00668 -0.00486715 3.85847 0.000297988 3.68677C0.00546312 3.51507 0.0728249 3.36707 0.202384 3.24276C0.331512 3.11804 0.48496 3.05568 0.662727 3.05568C0.840493 3.05568 0.993726 3.11804 1.12242 3.24276L3.41445 5.47216Z' fill='white'/%3e%3c/svg%3e ");
+    /* top: 25%;
+    left: 25%; */
   }
   .addresses-top_description-active {
     display: grid;
@@ -2037,16 +2059,16 @@ footer {
   overflow: hidden;
 }
 .left-specifications_content {
- display: grid;
- gap: 1.6rem;
+  display: grid;
+  gap: 1.6rem;
 }
 
 .line-text_fication-span {
-  padding: .6rem 0;
+  padding: 0.6rem 0;
   position: relative;
   z-index: 1;
 }
-.left-specifications_content-line_text{
+.left-specifications_content-line_text {
   position: relative;
 }
 .left-specifications_content-line_text:after {
@@ -2058,80 +2080,75 @@ footer {
   right: 0;
   bottom: 0;
 }
-.left-specifications_content-line_more{
+.left-specifications_content-line_more {
   text-align: right;
 }
-.main-productcard_content-bottom{
+.main-productcard_content-bottom {
   display: flex;
   gap: 4rem;
 }
-.productcard-bottom_right{
+.productcard-bottom_right {
   display: grid;
   gap: 4rem;
   border: 1px solid rgba(56, 60, 64, 1);
   padding: 4rem;
   height: fit-content;
   border-radius: 2.4rem;
-  background: url('../../assest/image/card/form-p.png') no-repeat;
+  background: url("../../assest/image/card/form-p.png") no-repeat;
 }
-.productcard-bottom_right .request_content-top_text{
+.productcard-bottom_right .request_content-top_text {
   width: 100%;
 }
-.productcard-bottom_right .request-form_bottom{
+.productcard-bottom_right .request-form_bottom {
   justify-content: space-between;
 }
-.productcard-bottom_right .checkbox-block{
+.productcard-bottom_right .checkbox-block {
   order: 1;
 }
-.productcard-bottom_right .btn-application{
+.productcard-bottom_right .btn-application {
   order: 2;
 }
-.main-productcard_content-bottom .main-request_content-bottom{
+.main-productcard_content-bottom .main-request_content-bottom {
   width: 76rem;
 }
-.main-productcard_content-bottom .form-input{
+.main-productcard_content-bottom .form-input {
   width: 36rem;
 }
 
-#description .left-specifications_content-line_text:after{
+#description .left-specifications_content-line_text:after {
   display: none;
 }
-@media (max-width:48em) {
-  .main-productcard_content-bottom{
+@media (max-width: 48em) {
+  .main-productcard_content-bottom {
     display: grid;
     gap: 16rem;
   }
-  .productcard-bottom_left-specifications{
+  .productcard-bottom_left-specifications {
     width: 100%;
   }
-  .productcard-bottom_right .form-input{
+  .productcard-bottom_right .form-input {
     width: 63rem;
   }
-  .main-productcard_content-bottom .main-request_content-bottom{
+  .main-productcard_content-bottom .main-request_content-bottom {
     width: 63rem;
   }
-  .line-text_fication-span{
+  .line-text_fication-span {
     display: flex;
     width: 50rem;
   }
-  .left-specifications_content-line_more{
+  .left-specifications_content-line_more {
     white-space: nowrap;
   }
-  .productcard-btn{
+  .productcard-btn {
     height: 7.2rem;
     font-size: 2.8rem;
     white-space: nowrap;
     border-radius: 2rem;
   }
-  .productcard-bottom_left-btns{
+  .productcard-bottom_left-btns {
     gap: 2rem;
   }
-  
-  
 }
-
-
-
 
 .main-portfolio .swiper-slide {
   width: auto;
