@@ -1296,6 +1296,12 @@ main {
   height: 43rem;
   border-radius: 2.4rem;
 }
+#map2 {
+  width: 40rem;
+  height: 43rem;
+  border-radius: 2.4rem;
+}
+
 .contacts-addresses_top {
   display: grid;
   gap: 3rem;
@@ -1553,6 +1559,8 @@ main {
 /* footer */
 footer {
   margin-bottom: 4rem;
+  display: grid;
+  gap: 10rem;
 }
 .footer-container_block {
   display: grid;
@@ -2168,6 +2176,130 @@ footer {
     gap: 2rem;
   }
 }
+/* main-title */
+.main-title {
+  margin-bottom: 4.6rem;
+}
+.main-contacts_content {
+  display: flex;
+  gap: 5.6rem;
+}
+.main-contacts_content-top {
+  display: grid;
+  gap: 13.2rem;
+}
+.main-contacts_top-block {
+  display: grid;
+  gap: 5.6rem;
+}
+.contacts_block-top {
+  display: grid;
+  gap: 3rem;
+}
+.contacts_block-top_box {
+  display: grid;
+  gap: 5.6rem;
+}
+.contacts-block {
+  display: grid;
+  gap: 2rem;
+}
+.contacts-content_line {
+  border: 1px solid rgba(56, 60, 64, 1);
+  height: auto;
+}
+.main-contacts #map {
+  width: 80rem;
+}
+.main-contacts #map2 {
+  width: 80rem;
+}
+@media (max-width: 48em) {
+  .main-title {
+    margin-bottom: 8rem;
+  }
+  .main-contacts_content {
+    display: grid;
+  }
+  .contacts-content_line {
+    display: none;
+  }
+  .main-contacts_content-top {
+    gap: 4.8rem;
+  }
+  .main-contacts #map {
+    width: 71rem;
+    height: 52rem;
+    border-radius: 3.2rem;
+  }
+  .main-contacts #map2 {
+    width: 71rem;
+    height: 52rem;
+    border-radius: 3.2rem;
+  }
+}
+/* news */
+.main-news{
+  display: grid;
+  gap: 14rem;
+}
+.main-news_top{
+  display: grid;
+  gap: 10rem;
+}
+.main-news_content-left {
+  display: flex;
+  justify-content: space-between;
+  width: 100rem;
+}
+.new-container_content{
+  display: flex;
+  gap: 4rem;
+}
+.image-news {
+  width: 53rem;
+  height: 31rem;
+  border-radius: 2.4rem;
+  object-fit: cover;
+  object-position: 50% 80%;
+}
+.main-news_content-rigth{
+  width: 68rem;
+  display: grid;
+  gap: 3.2rem;
+}
+.news_content-rigth_block{
+  display: grid;
+  gap: 1.6rem;
+}
+.content-rigth_block-p{
+  display: grid;
+  gap: 2.6rem;
+}
+.main-news_content-rigth .portfolio-item_btn{
+  margin-bottom: 0;
+}
+@media (max-width:48em) {
+  .new-container_content{
+    display: grid;
+    gap: 4.8rem;
+  }
+  .main-news_content-left{
+    width: 100%;
+    display: grid;
+    gap: 2.6rem;
+  }
+  .main-news_content-left .h3{
+    order: 2;
+  }
+  .image-news{
+    width: 71rem;
+    height: 60rem;
+    border-radius: 3.2rem;
+  }
+}
+
+
 
 .main-portfolio .swiper-slide {
   width: auto;

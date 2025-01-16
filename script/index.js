@@ -54,8 +54,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   var myMap;
+
   ymaps.ready(function () {
     init("moscow");
+    initMap2(); // Инициализация второй карты
   });
 
   function init(city) {
@@ -112,6 +114,27 @@ document.addEventListener("DOMContentLoaded", function () {
     myPlacemark.events.add("drag", updateAddressPosition);
     myPlacemark.events.add("dragend", updateAddressPosition);
   }
+  function initMap2() {
+    var myMap2 = new ymaps.Map("map2", {
+      center: [43.4231, 39.9257],
+      zoom: 16,
+      controls: ["zoomControl"],
+    });
+
+    var myPlacemark2 = new ymaps.Placemark(
+      [43.4231, 39.9257],
+      {
+        hintContent: "Здесь мы находимся!",
+        balloonContent:
+          "Здесь находится офис: г. Сочи, Адлерский район, ул. Гастелло, д. 42",
+      },
+      {
+        preset: "islands#redIcon",
+      }
+    );
+    myMap2.geoObjects.add(myPlacemark2);
+  }
+
 
   document.querySelectorAll(".addresses-link").forEach((button) => {
     button.addEventListener("click", function () {
@@ -182,26 +205,25 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("description").style.display = "none";
     document.getElementById(contentType).style.display = "grid";
   }
-
   function setActiveButton(activeButton, inactiveButton) {
     inactiveButton.classList.remove("productcard-btn_active");
     activeButton.classList.add("productcard-btn_active");
   }
-
   const strip = document.getElementById("strip");
   const movingText = document.getElementById("movingText");
 
-  movingText.innerHTML += movingText.innerHTML;
+  if (strip && movingText) {
+    movingText.innerHTML += movingText.innerHTML;
+    strip.style.width = `${movingText.scrollWidth}px`;
 
-  const totalWidth = movingText.scrollWidth;
-  strip.style.width = `${totalWidth}px`; 
-  function setAnimationDuration() {
-    const speed = window.innerWidth <= 48 * 16 ? 30 : 30; 
-    const distance = totalWidth;
-    const animationDuration = distance / (totalWidth / speed) + "s"; 
-    strip.style.animationDuration = animationDuration; 
+    const setAnimationDuration = () => {
+      const speed = 30;
+      strip.style.animationDuration = `${
+        movingText.scrollWidth / (movingText.scrollWidth / speed)
+      }s`;
+    };
+
+    setAnimationDuration();
+    window.addEventListener("resize", setAnimationDuration);
   }
-
-  setAnimationDuration();
-  window.addEventListener("resize", setAnimationDuration);
 });
