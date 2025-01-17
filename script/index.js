@@ -54,87 +54,92 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   var myMap;
-
-  ymaps.ready(function () {
-    init("moscow");
-    initMap2(); // Инициализация второй карты
-  });
-
-  function init(city) {
-    if (myMap) {
-      myMap.destroy();
-    }
-
-    var coordinates;
-    var addressText;
-    if (city === "moscow") {
-      coordinates = [55.975, 37.5165];
-      addressText = "Московская область, г. Долгопрудный, ул. Заводская, дом 2";
-    } else if (city === "sochi") {
-      coordinates = [43.4231, 39.9257];
-      addressText = "г. Сочи, Адлерский район, ул. Гастелло, д. 42";
-    }
-
-    myMap = new ymaps.Map("map", {
-      center: coordinates,
-      zoom: 16,
-      controls: ["zoomControl"],
+  window.onload = function () {
+    ymaps.ready(function () {
+      if (document.getElementById("map")) {
+        init("moscow");
+      }
+      if (document.getElementById("map2")) {
+        initMap2();
+      }
     });
 
-    var myPlacemark = new ymaps.Placemark(
-      coordinates,
-      {},
-      {
-        iconImageSize: [30, 30],
-        iconImageOffset: [-15, -30],
+    function init(city) {
+      if (myMap) {
+        myMap.destroy();
       }
-    );
-    myMap.geoObjects.add(myPlacemark);
 
-    var addressDiv = document.createElement("div");
-    addressDiv.className = "address-label";
-    addressDiv.innerHTML = addressText;
-
-    myMap.container.getElement().appendChild(addressDiv);
-
-    function updateAddressPosition() {
-      if (myMap.projection) {
-        var coords = myPlacemark.geometry.getCoordinates();
-        var pixelCoords = myMap.projection.toGlobalPixels(
-          coords,
-          myMap.getZoom()
-        );
-        addressDiv.style.left = pixelCoords[0] + "px";
-        addressDiv.style.top = pixelCoords[1] - 30 + "px";
+      var coordinates;
+      var addressText;
+      if (city === "moscow") {
+        coordinates = [55.975, 37.5165];
+        addressText = "Московская область, г. Долгопрудный, ул. Заводская, дом 2";
+      } else if (city === "sochi") {
+        coordinates = [43.4231, 39.9257];
+        addressText = "г. Сочи, Адлерский район, ул. Гастелло, д. 42";
       }
+
+      myMap = new ymaps.Map("map", {
+        center: coordinates,
+        zoom: 16,
+        controls: ["zoomControl"],
+      });
+
+      var myPlacemark = new ymaps.Placemark(
+        coordinates,
+        {},
+        {
+          iconImageSize: [30, 30],
+          iconImageOffset: [-15, -30],
+        }
+      );
+      myMap.geoObjects.add(myPlacemark);
+
+      var addressDiv = document.createElement("div");
+      addressDiv.className = "address-label";
+      addressDiv.innerHTML = addressText;
+
+      myMap.container.getElement().appendChild(addressDiv);
+
+      function updateAddressPosition() {
+        if (myMap.projection) {
+          var coords = myPlacemark.geometry.getCoordinates();
+          var pixelCoords = myMap.projection.toGlobalPixels(
+            coords,
+            myMap.getZoom()
+          );
+          addressDiv.style.left = pixelCoords[0] + "px";
+          addressDiv.style.top = pixelCoords[1] - 30 + "px";
+        }
+      }
+
+      updateAddressPosition();
+
+      myPlacemark.events.add("drag", updateAddressPosition);
+      myPlacemark.events.add("dragend", updateAddressPosition);
     }
 
-    updateAddressPosition();
+    function initMap2() {
+      var myMap2 = new ymaps.Map("map2", {
+        center: [43.4231, 39.9257],
+        zoom: 16,
+        controls: ["zoomControl"],
+      });
 
-    myPlacemark.events.add("drag", updateAddressPosition);
-    myPlacemark.events.add("dragend", updateAddressPosition);
+      var myPlacemark2 = new ymaps.Placemark(
+        [43.4231, 39.9257],
+        {
+          hintContent: "Здесь мы находимся!",
+          balloonContent:
+            "Здесь находится офис: г. Сочи, Адлерский район, ул. Гастелло, д. 42",
+        },
+        {
+          preset: "islands#redIcon",
+        }
+      );
+      myMap2.geoObjects.add(myPlacemark2);
+    }
   }
-  function initMap2() {
-    var myMap2 = new ymaps.Map("map2", {
-      center: [43.4231, 39.9257],
-      zoom: 16,
-      controls: ["zoomControl"],
-    });
-
-    var myPlacemark2 = new ymaps.Placemark(
-      [43.4231, 39.9257],
-      {
-        hintContent: "Здесь мы находимся!",
-        balloonContent:
-          "Здесь находится офис: г. Сочи, Адлерский район, ул. Гастелло, д. 42",
-      },
-      {
-        preset: "islands#redIcon",
-      }
-    );
-    myMap2.geoObjects.add(myPlacemark2);
-  }
-
 
   document.querySelectorAll(".addresses-link").forEach((button) => {
     button.addEventListener("click", function () {
