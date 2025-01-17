@@ -2462,6 +2462,53 @@ footer {
     height: 60rem;
   }
 }
+/* main-articles */
+.main-articles_content{
+  display: flex;
+  justify-content: space-between;
+  gap: 24rem;
+}
+.main-articles_content-bottom{
+  display: grid;
+  gap: 4rem;
+}
+.main-articles_content .portfolio-item_btn{
+  margin: 0;
+}
+.articles_content-item{
+  padding: 2rem 0 1.5rem 6rem;
+  display: grid;
+  justify-items: end;
+  gap: 3.2rem;
+  margin: 4rem 0;
+}
+.articles_content-item_block{
+  display: grid;
+  gap: 1.6rem;
+}
+@media (max-width:48em) {
+  .main-articles_content{
+    display: grid;
+    gap: 0;
+  }
+  .articles_content-item{
+    justify-items: start;
+    padding: 8rem 0 8rem 0;
+    margin: 0;
+    gap: 4.8rem;
+  }
+  .articles_content-item_block{
+    gap: 4.8rem;
+  }
+  .articles_content-item_text{
+    height: 34rem;
+    overflow: hidden;
+  }
+}
+
+
+
+
 
 .main-portfolio .swiper-slide {
   width: auto;
