@@ -805,6 +805,10 @@ main {
   .line-working {
     display: none;
   }
+  .portfolio-item_btn:hover::after{
+    width: 4.8rem;
+    height: 4.8rem;
+  }
 }
 /* numbers */
 .main-numbers {
@@ -1915,7 +1919,7 @@ footer {
   }
   .product_content-item_image {
     height: 34.6rem;
-    border-radius: 2rem 2rem 0 0;
+    border-radius:3.2rem 3.2rem 0 0;
   }
   .product_content-item_block .product_content-item_block-title {
     height: 12.8rem;
