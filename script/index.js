@@ -73,7 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
       var addressText;
       if (city === "moscow") {
         coordinates = [55.975, 37.5165];
-        addressText = "Московская область, г. Долгопрудный, ул. Заводская, дом 2";
+        addressText =
+          "Московская область, г. Долгопрудный, ул. Заводская, дом 2";
       } else if (city === "sochi") {
         coordinates = [43.4231, 39.9257];
         addressText = "г. Сочи, Адлерский район, ул. Гастелло, д. 42";
@@ -139,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       myMap2.geoObjects.add(myPlacemark2);
     }
-  }
+  };
 
   document.querySelectorAll(".addresses-link").forEach((button) => {
     button.addEventListener("click", function () {
@@ -230,5 +231,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setAnimationDuration();
     window.addEventListener("resize", setAnimationDuration);
+  }
+
+
+  const contentBlocks = document.querySelectorAll(
+    ".content-rigth_block-p.services-hidden"
+  );
+  if (contentBlocks.length > 0) {
+    const descriptionTitles = document.querySelectorAll(".description-title");
+    descriptionTitles.forEach((title, index) => {
+      title.addEventListener("click", () => {
+        contentBlocks[index].classList.toggle("services-hidden");
+
+        const arrowUp = title.querySelector(".arrow-ser-up");
+        const arrowDown = title.querySelector(".arrow-ser-down");
+        arrowUp.style.display =
+          arrowUp.style.display === "none" ? "block" : "none";
+        arrowDown.style.display =
+          arrowDown.style.display === "none" ? "block" : "none";
+      });
+    });
   }
 });

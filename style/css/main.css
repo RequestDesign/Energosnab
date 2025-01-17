@@ -2284,6 +2284,8 @@ footer {
   gap: 3.2rem;
 }
 .news_content-rigth_block {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
   display: grid;
   gap: 1.6rem;
 }
@@ -2359,7 +2361,7 @@ footer {
 .services-text {
   margin: 5rem 0;
 }
-.main-certificates_content{
+.main-certificates_content {
   position: relative;
 }
 .certificates-content_block-certif {
@@ -2380,7 +2382,7 @@ footer {
   height: 73rem;
   object-fit: cover;
 }
-.certificates-image{
+.certificates-image {
   position: absolute;
   width: 84rem;
   height: 85rem;
@@ -2388,13 +2390,13 @@ footer {
   top: 5rem;
   z-index: -1;
 }
-.certificates-image2{
+.certificates-image2 {
   position: absolute;
   width: 74rem;
   height: 75rem;
   z-index: -1;
   top: -15rem;
-  right:  -35rem;
+  right: -35rem;
   transform: scaleX(-1);
 }
 @media (max-width: 48em) {
@@ -2403,7 +2405,8 @@ footer {
     height: 100%;
     object-fit: contain;
   }
-  .certificates-image2 ,.certificates-image{
+  .certificates-image2,
+  .certificates-image {
     display: none;
   }
   .certificates-content_block-certif {
@@ -2417,11 +2420,47 @@ footer {
     display: grid;
     margin-top: 4rem;
   }
-  .certificates-block_title{
+  .certificates-block_title {
     border-bottom: 1px solid rgba(56, 60, 64, 1);
     padding-bottom: 4rem;
-  };
-  
+  }
+}
+/* main-services */
+.main-services .main-news_content-left {
+  width: auto;
+}
+.main-services .image-news {
+  width: 69rem;
+  height: 40rem;
+}
+.main-services .main-news_content-rigth {
+  width: 100%;
+  align-content: space-between;
+}
+.description-title {
+  justify-content: space-between;
+}
+@media (max-width: 48em) {
+  .main-services .main-news_content-rigth {
+    justify-items: center;
+  }
+  .main-services .content-rigth_block-p {
+    height: auto;
+    transition: max-height 0.3s ease;
+  }
+  .services-hidden {
+    max-height: 12.6rem;
+  }
+  .arrow-ser-up {
+    display: flex;
+  }
+  .arrow-ser-down {
+    display: none;
+  }
+  .main-services .image-news {
+    width: 71rem;
+    height: 60rem;
+  }
 }
 
 .main-portfolio .swiper-slide {
