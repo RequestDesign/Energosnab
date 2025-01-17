@@ -505,6 +505,12 @@ main {
 .text-gray {
   color: rgba(155, 157, 159, 1);
 }
+.text-upp {
+  text-transform: uppercase;
+}
+.text-align {
+  text-align: center;
+}
 .header-burger {
   display: none;
 }
@@ -805,7 +811,7 @@ main {
   .line-working {
     display: none;
   }
-  .portfolio-item_btn:hover::after{
+  .portfolio-item_btn:hover::after {
     width: 4.8rem;
     height: 4.8rem;
   }
@@ -1919,7 +1925,7 @@ footer {
   }
   .product_content-item_image {
     height: 34.6rem;
-    border-radius:3.2rem 3.2rem 0 0;
+    border-radius: 3.2rem 3.2rem 0 0;
   }
   .product_content-item_block .product_content-item_block-title {
     height: 12.8rem;
@@ -2293,8 +2299,8 @@ footer {
     display: grid;
     padding: 1.5rem 0 0 0;
   }
-  .link_option{
-    padding: .8rem 0 .8rem 0;
+  .link_option {
+    padding: 0.8rem 0 0.8rem 0;
   }
   .new-container_content {
     display: grid;
@@ -2334,14 +2340,14 @@ footer {
 .main-404_content .h1 {
   margin-bottom: 8rem;
 }
-.main-404_gz{
+.main-404_gz {
   width: 69rem;
   height: 70rem;
   position: absolute;
   top: 15rem;
 }
-@media (max-width:48em) {
-  .main-404_content{
+@media (max-width: 48em) {
+  .main-404_content {
     right: 0;
     width: 100%;
     display: grid;
@@ -2349,7 +2355,74 @@ footer {
     justify-items: center;
   }
 }
-
+/* main-certificates */
+.services-text {
+  margin: 5rem 0;
+}
+.main-certificates_content{
+  position: relative;
+}
+.certificates-content_block-certif {
+  display: grid;
+  justify-items: center;
+  gap: 2.4rem;
+}
+.certificates-content_block {
+  position: relative;
+  justify-content: center;
+  display: flex;
+  gap: 4rem;
+  margin-top: 5rem;
+}
+.image-certif {
+  border-radius: 2.4rem;
+  width: 52rem;
+  height: 73rem;
+  object-fit: cover;
+}
+.certificates-image{
+  position: absolute;
+  width: 84rem;
+  height: 85rem;
+  left: -20rem;
+  top: 5rem;
+  z-index: -1;
+}
+.certificates-image2{
+  position: absolute;
+  width: 74rem;
+  height: 75rem;
+  z-index: -1;
+  top: -15rem;
+  right:  -35rem;
+  transform: scaleX(-1);
+}
+@media (max-width: 48em) {
+  .image-certif {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .certificates-image2 ,.certificates-image{
+    display: none;
+  }
+  .certificates-content_block-certif {
+    border-bottom: 1px solid rgba(56, 60, 64, 1);
+    padding-bottom: 4rem;
+    display: grid;
+    justify-items: center;
+    gap: 4.8rem;
+  }
+  .certificates-content_block {
+    display: grid;
+    margin-top: 4rem;
+  }
+  .certificates-block_title{
+    border-bottom: 1px solid rgba(56, 60, 64, 1);
+    padding-bottom: 4rem;
+  };
+  
+}
 
 .main-portfolio .swiper-slide {
   width: auto;
