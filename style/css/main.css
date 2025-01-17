@@ -2463,52 +2463,117 @@ footer {
   }
 }
 /* main-articles */
-.main-articles_content{
+.main-articles {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  position: relative;
+}
+.main-articles_content {
   display: flex;
   justify-content: space-between;
   gap: 24rem;
 }
-.main-articles_content-bottom{
+.main-articles_content-bottom {
   display: grid;
   gap: 4rem;
 }
-.main-articles_content .portfolio-item_btn{
+.main-articles_content .portfolio-item_btn {
   margin: 0;
 }
-.articles_content-item{
+.articles_content-item {
   padding: 2rem 0 1.5rem 6rem;
   display: grid;
   justify-items: end;
   gap: 3.2rem;
   margin: 4rem 0;
 }
-.articles_content-item_block{
+.articles_content-item_block {
   display: grid;
   gap: 1.6rem;
 }
-@media (max-width:48em) {
-  .main-articles_content{
+.articles-gz {
+  position: absolute;
+  width: 69rem;
+  height: 70rem;
+  z-index: -1;
+}
+.main-article_content{
+  display: grid;
+  gap: 9rem;
+}
+.article-content_top{
+  border: 1px solid rgba(56, 60, 64, 1);
+  border-radius: 2.4rem;
+  width: 110%;
+  max-height: 793px;
+  padding: 5.2rem 0 5.2rem 6.3rem;
+  display: grid;
+  gap: 1.6rem;
+}
+.article-content_top .article-content_top-text{
+  width: 122rem;
+}
+.article-content_top-block{
+  display: grid;
+  gap: 1.6rem;
+}
+.article-content_main{
+  display: flex;
+  gap: 4rem;
+  height: fit-content;
+}
+.article-content_main .article-content_bottom{
+  width: 100%;
+  height: fit-content;
+}
+.article-content_bottom{
+  width: 140rem;
+  display: grid;
+  gap: 3.2rem;
+}
+.article-content_bottom-block{
+  display: grid;
+  gap: 3rem;
+}
+.article-content_bottom-title{
+  height: fit-content;
+}
+@media (max-width: 48em) {
+  .main-articles_content {
     display: grid;
     gap: 0;
   }
-  .articles_content-item{
+  .articles_content-item {
     justify-items: start;
     padding: 8rem 0 8rem 0;
     margin: 0;
     gap: 4.8rem;
   }
-  .articles_content-item_block{
+  .articles_content-item_block {
     gap: 4.8rem;
   }
-  .articles_content-item_text{
+  .articles_content-item_text {
     height: 34rem;
     overflow: hidden;
   }
+  .article-content_top{
+    width: 100%;
+    max-height: fit-content;
+    padding: 4rem;
+    gap: 4rem;
+  }
+  .article-content_top .article-content_top-text{
+    width: 100%;
+  }
+  .article-content_main{
+    display: grid;
+    gap: 8rem;
+  }
+  .article-content_bottom{
+    width: 100%;
+  }
 }
-
-
-
-
 
 .main-portfolio .swiper-slide {
   width: auto;
