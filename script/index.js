@@ -45,30 +45,58 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     console.warn("Swiper контейнер не найден: .mySwiper2");
   }
-  var swiperProject = document.querySelector(".mySwiper3");
-  if (swiperProject) {
-    var swiper = new Swiper(".mySwiper3", {
-      slidesPerView: "auto",
-      spaceBetween: 32,
-      navigation: {
-        nextEl: "#nextBtn",
-        prevEl: "#prevBtn",
-      },
+
+  var swiperProject4 = document.querySelector(".mySwiper4");
+if (swiperProject4) {
+  var swiper = new Swiper('.mySwiper4', {
+    loop: true,
+    slidesPerView: 3,
+    centeredSlides: true,
+    spaceBetween: 26,
+    navigation: {
+      nextEl: '#nextBtn',
+      prevEl: '#prevBtn',
+    },
       grabCursor: true,
       breakpoints: {
         789: {
-          slidesPerView: "auto",
-          spaceBetween: 32,
+          slidesPerView: 3,
+          spaceBetween: 26,
         },
         0: {
+          slidesPerView: "auto",
           spaceBetween: 22,
         },
       },
+    on: {
+      slideChangeTransitionStart: function () {
+        updateSlideSizes();
+      },
+    },
+  });
+
+  function updateSlideSizes() {
+    const slides = document.querySelectorAll('.mySwiper4 .swiper-slide');
+    slides.forEach(slide => {
+      slide.classList.remove('left', 'center', 'right');
     });
-  } else {
-    console.warn("Swiper контейнер не найден: .mySwiper3");
+
+    const activeIndex = swiper.activeIndex % slides.length;
+    const leftIndex = (activeIndex - 1 + slides.length) % slides.length;
+    const rightIndex = (activeIndex + 1) % slides.length;
+
+    slides[activeIndex].classList.add('center');
+    slides[leftIndex].classList.add('left');
+    slides[rightIndex].classList.add('right');
   }
 
+  updateSlideSizes();
+} else {
+  console.warn("Swiper контейнер не найден: .mySwiper4");
+}
+
+
+  
 
 
   const items = document.querySelectorAll(".working-block_item");
