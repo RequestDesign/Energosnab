@@ -47,16 +47,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   var swiperProject4 = document.querySelector(".mySwiper4");
-if (swiperProject4) {
-  var swiper = new Swiper('.mySwiper4', {
-    loop: true,
-    slidesPerView: 3,
-    centeredSlides: true,
-    spaceBetween: 26,
-    navigation: {
-      nextEl: '#nextBtn',
-      prevEl: '#prevBtn',
-    },
+  if (swiperProject4) {
+    var swiper = new Swiper(".mySwiper4", {
+      loop: true,
+      slidesPerView: 3,
+      centeredSlides: true,
+      spaceBetween: 26,
+      navigation: {
+        nextEl: "#nextBtn",
+        prevEl: "#prevBtn",
+      },
       grabCursor: true,
       breakpoints: {
         789: {
@@ -68,36 +68,32 @@ if (swiperProject4) {
           spaceBetween: 22,
         },
       },
-    on: {
-      slideChangeTransitionStart: function () {
-        updateSlideSizes();
+      on: {
+        slideChangeTransitionStart: function () {
+          updateSlideSizes();
+        },
       },
-    },
-  });
-
-  function updateSlideSizes() {
-    const slides = document.querySelectorAll('.mySwiper4 .swiper-slide');
-    slides.forEach(slide => {
-      slide.classList.remove('left', 'center', 'right');
     });
 
-    const activeIndex = swiper.activeIndex % slides.length;
-    const leftIndex = (activeIndex - 1 + slides.length) % slides.length;
-    const rightIndex = (activeIndex + 1) % slides.length;
+    function updateSlideSizes() {
+      const slides = document.querySelectorAll(".mySwiper4 .swiper-slide");
+      slides.forEach((slide) => {
+        slide.classList.remove("left", "center", "right");
+      });
 
-    slides[activeIndex].classList.add('center');
-    slides[leftIndex].classList.add('left');
-    slides[rightIndex].classList.add('right');
+      const activeIndex = swiper.activeIndex % slides.length;
+      const leftIndex = (activeIndex - 1 + slides.length) % slides.length;
+      const rightIndex = (activeIndex + 1) % slides.length;
+
+      slides[activeIndex].classList.add("center");
+      slides[leftIndex].classList.add("left");
+      slides[rightIndex].classList.add("right");
+    }
+
+    updateSlideSizes();
+  } else {
+    console.warn("Swiper контейнер не найден: .mySwiper4");
   }
-
-  updateSlideSizes();
-} else {
-  console.warn("Swiper контейнер не найден: .mySwiper4");
-}
-
-
-  
-
 
   const items = document.querySelectorAll(".working-block_item");
 
@@ -326,5 +322,25 @@ if (swiperProject4) {
           arrowDown.style.display === "none" ? "block" : "none";
       });
     });
+  }
+
+  const modal = document.getElementById("modal");
+  const openModalButton = document.getElementById("openModalButton");
+  const closeModalButton = document.getElementById("closeModalButton");
+
+  if (modal && openModalButton && closeModalButton) {
+    openModalButton.onclick = function () {
+      modal.style.display = "flex";
+    };
+
+    closeModalButton.onclick = function () {
+      modal.style.display = "none";
+    };
+
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
   }
 });
