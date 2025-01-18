@@ -2415,6 +2415,7 @@ footer {
     display: grid;
     justify-items: center;
     gap: 4.8rem;
+    height: fit-content;
   }
   .certificates-content_block {
     display: grid;
@@ -2450,6 +2451,12 @@ footer {
   }
   .services-hidden {
     max-height: 12.6rem;
+    display: -webkit-box; 
+    display: box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
   }
   .arrow-ser-up {
     display: flex;
@@ -2554,8 +2561,13 @@ footer {
     gap: 4.8rem;
   }
   .articles_content-item_text {
-    height: 34rem;
-    overflow: hidden;
+    max-height: 34rem;
+    display: -webkit-box; 
+    display: box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
   }
   .article-content_top{
     width: 100%;
