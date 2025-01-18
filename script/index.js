@@ -22,25 +22,52 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     console.warn("Swiper контейнер не найден: .mySwiper1");
   }
-
-  var swiper = new Swiper(".mySwiper2", {
-    slidesPerView: "auto",
-    spaceBetween: 32,
-    navigation: {
-      nextEl: "#nextBtn",
-      prevEl: "#prevBtn",
-    },
-    grabCursor: true,
-    breakpoints: {
-      789: {
-        slidesPerView: "auto",
-        spaceBetween: 32,
+  var swiperProjects = document.querySelector(".mySwiper2");
+  if (swiperProjects) {
+    var swiper = new Swiper(".mySwiper2", {
+      slidesPerView: "auto",
+      spaceBetween: 32,
+      navigation: {
+        nextEl: "#nextBtn",
+        prevEl: "#prevBtn",
       },
-      0: {
-        spaceBetween: 22,
+      grabCursor: true,
+      breakpoints: {
+        789: {
+          slidesPerView: "auto",
+          spaceBetween: 32,
+        },
+        0: {
+          spaceBetween: 22,
+        },
       },
-    },
-  });
+    });
+  } else {
+    console.warn("Swiper контейнер не найден: .mySwiper2");
+  }
+  var swiperProject = document.querySelector(".mySwiper3");
+  if (swiperProject) {
+    var swiper = new Swiper(".mySwiper3", {
+      slidesPerView: "auto",
+      spaceBetween: 32,
+      navigation: {
+        nextEl: "#nextBtn",
+        prevEl: "#prevBtn",
+      },
+      grabCursor: true,
+      breakpoints: {
+        789: {
+          slidesPerView: "auto",
+          spaceBetween: 32,
+        },
+        0: {
+          spaceBetween: 22,
+        },
+      },
+    });
+  } else {
+    console.warn("Swiper контейнер не найден: .mySwiper3");
+  }
 
 
 
@@ -253,7 +280,6 @@ document.addEventListener("DOMContentLoaded", function () {
     setAnimationDuration();
     window.addEventListener("resize", setAnimationDuration);
   }
-
 
   const contentBlocks = document.querySelectorAll(
     ".content-rigth_block-p.services-hidden"
