@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Услуги</title>
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=5f2fb3bc-4f36-4af2-b420-52b267e41a89" type="text/javascript"></script>
+    <title>Проект</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style/css/main.css">
+
 </head>
 <body>
     <header class="header">
@@ -65,7 +66,8 @@
                 <div class="main-way_content">
                     <a href="" class="main-way_content-link">Главная</a>
                     <div class="main-way_probel">/</div>
-                    <a href="" class="main-way_content-link content-link_active-decs">Услуги</a>
+                    <a href="" class="main-way_content-link">Проекты</a>
+                    <a href="" class="main-way_content-link content-link_active">Park Live Алматы 2024</a>
                 </div>
             </div>
         </section>
@@ -73,217 +75,63 @@
             <div class="container">
                 <div class="main-catalog_content">
                     <div class="catalog-content_top">
-                        <div class="catalog-content_top-title h1">Услуги</div>
+                        <div class="catalog-content_top-title h1">Park Live Алматы 2024</div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section class="main-services">
-            <div class="main-news_top">
-                <div class="services-main_item-line"></div>
-                <div class="main-news_content">
-                    <div class="container">
-                        <div class="new-container_content">
-                            <div class="main-news_content-left">
-                                <img class="image-news" src="assest/image/new/image-new.png" alt="">
-                        </div> 
-                        <div class="main-news_content-rigth">
-                            <div class="news_content-rigth_block">
-                                <div class="h2">Энергоснабжение</div>
-                                <div class="description-title on-flex">
-                                    <span class="txt16">Описание</span>
-                                    <svg class="svg-clo arrow-ser-up" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M19 9L12.7809 14.3306C12.3316 14.7158 11.6684 14.7158 11.2191 14.3306L5 9" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                                    </svg>
-                                    <svg class="svg-clo arrow-ser-down" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                                        <path d="M5 15L11.2191 9.66939C11.6684 9.2842 12.3316 9.2842 12.7809 9.66939L19 15" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                                    </svg> 
+        <section Live Алматы 2024 class="main-project">
+            <div class="container">
+                <div class="main-project_content">
+                    <div class="project-content_top">
+                        <div class="swiper mySwiper2">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <video class="video-project" controls>
+                                        <source src="movie.mp4" type="video/mp4">
+                                    </video> 
                                 </div>
-                                <div class="content-rigth_block-p services-hidden">
-                                    <p class="text-gray txt18 txt16">Компания «ЭнергоСнаб» предлагает выгодную аренду дизельных генераторов в Москве и Московской области. Мы оказываем полный комплекс услуг — от просчёта требуемой мощности до круглосуточного обслуживания оборудования.
-                                        </p>
-                                    <p class="text-gray txt18 txt16">
-                                        В нашем каталоге присутствуют только современные модели дизельных электростанций известных мировых производителей: Denyo, Airman и пр. Они прекрасно зарекомендовали себя во время эксплуатации и получили много положительных отзывов.</p>
-                                </div>
+                              <div class="swiper-slide">
+                                <img class="image-slide" src="assest/image/projects/image-projects.png" alt="">
+                              </div>
+                              <div class="swiper-slide">
+                                <img class="image-slide" src="assest/image/projects/image-project2.png" alt="">
+                              </div>
+                              <div class="swiper-slide">
+                                <img class="image-slide" src="assest/image/projects/image-projects.png" alt="">
+                              </div>
+                              <div class="swiper-slide">
+                                <img class="image-slide" src="assest/image/projects/image-project2.png" alt="">
+                              </div>
                             </div>
-                            <button class="btn-application"> 
-                                <span class="txt16">Заказать услугу 
-                                    <svg class="btn-application_svg" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        </div>
+                        <div class="main-content_btn no-flex">
+                            <button class="btn-arror" id="prevBtn">
+                                <svg class="arr-port_svg" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12 2.5C6.48 2.5 2 6.98 2 12.5C2 18.02 6.48 22.5 12 22.5C17.52 22.5 22 18.02 22 12.5C22 6.98 17.52 2.5 12 2.5ZM16.03 13.03L13.03 16.03C12.88 16.18 12.69 16.25 12.5 16.25C12.31 16.25 12.12 16.18 11.97 16.03C11.68 15.74 11.68 15.26 11.97 14.97L13.69 13.25H8.5C8.09 13.25 7.75 12.91 7.75 12.5C7.75 12.09 8.09 11.75 8.5 11.75H13.69L11.97 10.03C11.68 9.74 11.68 9.26 11.97 8.97C12.26 8.68 12.74 8.68 13.03 8.97L16.03 11.97C16.32 12.26 16.32 12.74 16.03 13.03Z" fill="white"/>
-                                    </svg>
-                                </span>
+                                </svg>                            
                             </button>
-                        </div> 
+                            <button class="btn-arror" id="nextBtn">
+                                <svg class="arr-port_svg" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2.5C6.48 2.5 2 6.98 2 12.5C2 18.02 6.48 22.5 12 22.5C17.52 22.5 22 18.02 22 12.5C22 6.98 17.52 2.5 12 2.5ZM16.03 13.03L13.03 16.03C12.88 16.18 12.69 16.25 12.5 16.25C12.31 16.25 12.12 16.18 11.97 16.03C11.68 15.74 11.68 15.26 11.97 14.97L13.69 13.25H8.5C8.09 13.25 7.75 12.91 7.75 12.5C7.75 12.09 8.09 11.75 8.5 11.75H13.69L11.97 10.03C11.68 9.74 11.68 9.26 11.97 8.97C12.26 8.68 12.74 8.68 13.03 8.97L16.03 11.97C16.32 12.26 16.32 12.74 16.03 13.03Z" fill="white"/>
+                                </svg>                 
+                            </button>
                         </div>
                     </div>
-                </div>
-                <div class="services-main_item-line"></div>
-                <div class="main-news_content">
-                    <div class="container">
-                        <div class="new-container_content">
-                            <div class="main-news_content-left">
-
-                                <img class="image-news" src="assest/image/new/image-new.png" alt="">
-                        </div> 
-                        <div class="main-news_content-rigth">
-                            <div class="news_content-rigth_block">
-                                <div class="h2">XVIII конференция прокатчиков 2024</div>
-                                <div class="description-title on-flex">
-                                    <span class="txt16">Описание</span>
-                                    <svg class="svg-clo arrow-ser-up" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M19 9L12.7809 14.3306C12.3316 14.7158 11.6684 14.7158 11.2191 14.3306L5 9" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                                    </svg>
-                                    <svg class="svg-clo arrow-ser-down" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                                        <path d="M5 15L11.2191 9.66939C11.6684 9.2842 12.3316 9.2842 12.7809 9.66939L19 15" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                                    </svg> 
-                                </div>
-                                <div class="content-rigth_block-p services-hidden">
-                                    <p class="text-gray txt18 txt16">АХ, САМАРА-ГОРОДОК, БЕСПОКОЙНАЯ Я..." (слова 
-                                        из песни) Да,собственно, и не о чем беспокоиться в эти дни в Самаре. Ведь там проходит XVIII конференция прокатчиков, на которой собрались ведущие игроки рынка, производители и дистрибьюторы оборудования, а также ивент-агентства.
-                                        </p>
-                                    <p class="text-gray txt18 txt16">
-                                        "ЭНЕРГОСНАБ" не мог обойти стороной это знаковое мероприятие 
-                                        и поэтому принял участие в его работе.</p>
-                                </div>
-                            </div>
-                            <button class="btn-application"> 
-                                <span class="txt16">Заказать услугу 
-                                    <svg class="btn-application_svg" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 2.5C6.48 2.5 2 6.98 2 12.5C2 18.02 6.48 22.5 12 22.5C17.52 22.5 22 18.02 22 12.5C22 6.98 17.52 2.5 12 2.5ZM16.03 13.03L13.03 16.03C12.88 16.18 12.69 16.25 12.5 16.25C12.31 16.25 12.12 16.18 11.97 16.03C11.68 15.74 11.68 15.26 11.97 14.97L13.69 13.25H8.5C8.09 13.25 7.75 12.91 7.75 12.5C7.75 12.09 8.09 11.75 8.5 11.75H13.69L11.97 10.03C11.68 9.74 11.68 9.26 11.97 8.97C12.26 8.68 12.74 8.68 13.03 8.97L16.03 11.97C16.32 12.26 16.32 12.74 16.03 13.03Z" fill="white"/>
-                                    </svg>
-                                </span>
-                            </button>
-                        </div> 
-                        </div>
-                    </div>
-                </div>
-                <div class="services-main_item-line"></div>
-                <div class="main-news_content">
-                    <div class="container">
-                        <div class="new-container_content">
-                            <div class="main-news_content-left">
-     
-                                <img class="image-news" src="assest/image/new/image-new.png" alt="">
-                        </div> 
-                        <div class="main-news_content-rigth">
-                            <div class="news_content-rigth_block ">
-                                <div class="h2">XVIII конференция прокатчиков 2024</div>
-                                <div class="description-title on-flex">
-                                    <span class="txt16">Описание</span>
-                                    <svg class="svg-clo arrow-ser-up" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M19 9L12.7809 14.3306C12.3316 14.7158 11.6684 14.7158 11.2191 14.3306L5 9" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                                    </svg>
-                                    <svg class="svg-clo arrow-ser-down" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                                        <path d="M5 15L11.2191 9.66939C11.6684 9.2842 12.3316 9.2842 12.7809 9.66939L19 15" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                                    </svg> 
-                                </div>
-                                <div class="content-rigth_block-p services-hidden">
-                                    <p class="text-gray txt18 txt16">АХ, САМАРА-ГОРОДОК, БЕСПОКОЙНАЯ Я..." (слова 
-                                        из песни) Да,собственно, и не о чем беспокоиться в эти дни в Самаре. Ведь там проходит XVIII конференция прокатчиков, на которой собрались ведущие игроки рынка, производители и дистрибьюторы оборудования, а также ивент-агентства.
-                                        </p>
-                                    <p class="text-gray txt18 txt16">
-                                        "ЭНЕРГОСНАБ" не мог обойти стороной это знаковое мероприятие 
-                                        и поэтому принял участие в его работе.</p>
-                                </div>
-                            </div>
-                            <button class="btn-application"> 
-                                <span class="txt16">Заказать услугу 
-                                    <svg class="btn-application_svg" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 2.5C6.48 2.5 2 6.98 2 12.5C2 18.02 6.48 22.5 12 22.5C17.52 22.5 22 18.02 22 12.5C22 6.98 17.52 2.5 12 2.5ZM16.03 13.03L13.03 16.03C12.88 16.18 12.69 16.25 12.5 16.25C12.31 16.25 12.12 16.18 11.97 16.03C11.68 15.74 11.68 15.26 11.97 14.97L13.69 13.25H8.5C8.09 13.25 7.75 12.91 7.75 12.5C7.75 12.09 8.09 11.75 8.5 11.75H13.69L11.97 10.03C11.68 9.74 11.68 9.26 11.97 8.97C12.26 8.68 12.74 8.68 13.03 8.97L16.03 11.97C16.32 12.26 16.32 12.74 16.03 13.03Z" fill="white"/>
-                                    </svg>
-                                </span>
-                            </button>
-                        </div> 
-                        </div>
-                    </div>
-                </div>
-                <div class="services-main_item-line"></div>
-                <div class="main-news_content">
-                    <div class="container">
-                        <div class="new-container_content">
-                            <div class="main-news_content-left">
-        
-                                <img class="image-news" src="assest/image/new/image-new.png" alt="">
-                        </div> 
-                        <div class="main-news_content-rigth">
-                            <div class="news_content-rigth_block">
-                                <div class="h2">XVIII конференция прокатчиков 2024</div>
-                                <div class="description-title on-flex">
-                                    <span class="txt16">Описание</span>
-                                    <svg class="svg-clo arrow-ser-up" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M19 9L12.7809 14.3306C12.3316 14.7158 11.6684 14.7158 11.2191 14.3306L5 9" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                                    </svg>
-                                    <svg class="svg-clo arrow-ser-down" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                                        <path d="M5 15L11.2191 9.66939C11.6684 9.2842 12.3316 9.2842 12.7809 9.66939L19 15" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                                    </svg> 
-                                </div>
-                                <div class="content-rigth_block-p services-hidden">
-                                    <p class="text-gray txt18 txt16">АХ, САМАРА-ГОРОДОК, БЕСПОКОЙНАЯ Я..." (слова 
-                                        из песни) Да,собственно, и не о чем беспокоиться в эти дни в Самаре. Ведь там проходит XVIII конференция прокатчиков, на которой собрались ведущие игроки рынка, производители и дистрибьюторы оборудования, а также ивент-агентства.
-                                        </p>
-                                    <p class="text-gray txt18 txt16">
-                                        "ЭНЕРГОСНАБ" не мог обойти стороной это знаковое мероприятие 
-                                        и поэтому принял участие в его работе.</p>
-                                </div>
-                            </div>
-                            <button class="btn-application"> 
-                                <span class="txt16">Заказать услугу 
-                                    <svg class="btn-application_svg" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 2.5C6.48 2.5 2 6.98 2 12.5C2 18.02 6.48 22.5 12 22.5C17.52 22.5 22 18.02 22 12.5C22 6.98 17.52 2.5 12 2.5ZM16.03 13.03L13.03 16.03C12.88 16.18 12.69 16.25 12.5 16.25C12.31 16.25 12.12 16.18 11.97 16.03C11.68 15.74 11.68 15.26 11.97 14.97L13.69 13.25H8.5C8.09 13.25 7.75 12.91 7.75 12.5C7.75 12.09 8.09 11.75 8.5 11.75H13.69L11.97 10.03C11.68 9.74 11.68 9.26 11.97 8.97C12.26 8.68 12.74 8.68 13.03 8.97L16.03 11.97C16.32 12.26 16.32 12.74 16.03 13.03Z" fill="white"/>
-                                    </svg>
-                                </span>
-                            </button>
-                        </div> 
-                        </div>
-                    </div>
-                </div>
-                <div class="services-main_item-line"></div>
-                <div class="main-news_content">
-                    <div class="container">
-                        <div class="new-container_content">
-                            <div class="main-news_content-left">
-
-                                <img class="image-news" src="assest/image/new/image-new.png" alt="">
-                        </div> 
-                        <div class="main-news_content-rigth">
-                            <div class="news_content-rigth_block">
-                                <div class="h2">XVIII конференция прокатчиков 2024</div>
-                                <div class="description-title on-flex">
-                                    <span class="txt16">Описание</span>
-                                    <svg class="svg-clo arrow-ser-up" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M19 9L12.7809 14.3306C12.3316 14.7158 11.6684 14.7158 11.2191 14.3306L5 9" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                                    </svg>
-                                    <svg class="svg-clo arrow-ser-down" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                                        <path d="M5 15L11.2191 9.66939C11.6684 9.2842 12.3316 9.2842 12.7809 9.66939L19 15" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                                    </svg> 
-                                </div>
-                                <div class="content-rigth_block-p services-hidden">
-                                    <p class="text-gray txt18 txt16">АХ, САМАРА-ГОРОДОК, БЕСПОКОЙНАЯ Я..." (слова 
-                                        из песни) Да,собственно, и не о чем беспокоиться в эти дни в Самаре. Ведь там проходит XVIII конференция прокатчиков, на которой собрались ведущие игроки рынка, производители и дистрибьюторы оборудования, а также ивент-агентства.
-                                        </p>
-                                    <p class="text-gray txt18 txt16">
-                                        "ЭНЕРГОСНАБ" не мог обойти стороной это знаковое мероприятие 
-                                        и поэтому принял участие в его работе.</p>
-                                </div>
-                            </div>
-                            <button class="btn-application"> 
-                                <span class="txt16">Заказать услугу 
-                                    <svg class="btn-application_svg" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 2.5C6.48 2.5 2 6.98 2 12.5C2 18.02 6.48 22.5 12 22.5C17.52 22.5 22 18.02 22 12.5C22 6.98 17.52 2.5 12 2.5ZM16.03 13.03L13.03 16.03C12.88 16.18 12.69 16.25 12.5 16.25C12.31 16.25 12.12 16.18 11.97 16.03C11.68 15.74 11.68 15.26 11.97 14.97L13.69 13.25H8.5C8.09 13.25 7.75 12.91 7.75 12.5C7.75 12.09 8.09 11.75 8.5 11.75H13.69L11.97 10.03C11.68 9.74 11.68 9.26 11.97 8.97C12.26 8.68 12.74 8.68 13.03 8.97L16.03 11.97C16.32 12.26 16.32 12.74 16.03 13.03Z" fill="white"/>
-                                    </svg>
-                                </span>
-                            </button>
-                        </div> 
+                    <div class="project-content_bottom">
+                        <div class="txt-18 txt16 text-gray">
+                            "УЕХАЛА ТЫ В ДАЛЁКУЮ СТРАНУ..." (слова из песни группы "А-студио")
+                            "ЭНЕРГОСНАБ" намедни тоже выезжал в далёкую страну. Хотя Казахстан и граничит с Россией, но чтобы добраться до Алматы пришлось затратить определённое время.
+                            Но теперь мы можем с гордостью сказать, что наша компания участвовала в международном проекте и наполняла энергией фестиваль Park Live!
+                            <div>"ЭНЕРГОСНАБ" - и на международном уровне!!!</div>
                         </div>
                     </div>
                 </div>
             </div>
-            
         </section>
+        <section class="main-3dswiper"></section>
     </main>
-    <footer>
-        
+     <footer>
         <div class="services-main_item-line"></div>
         <div class="container">
             <div class="footer-container_block">
@@ -412,6 +260,7 @@
             </div>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script/index.js"></script>
 </body>
 </html>

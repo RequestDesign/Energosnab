@@ -23,6 +23,27 @@ document.addEventListener("DOMContentLoaded", function () {
     console.warn("Swiper контейнер не найден: .mySwiper1");
   }
 
+  var swiper = new Swiper(".mySwiper2", {
+    slidesPerView: "auto",
+    spaceBetween: 32,
+    navigation: {
+      nextEl: "#nextBtn",
+      prevEl: "#prevBtn",
+    },
+    grabCursor: true,
+    breakpoints: {
+      789: {
+        slidesPerView: "auto",
+        spaceBetween: 32,
+      },
+      0: {
+        spaceBetween: 22,
+      },
+    },
+  });
+
+
+
   const items = document.querySelectorAll(".working-block_item");
 
   if (items.length > 0) {
