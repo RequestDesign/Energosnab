@@ -343,4 +343,53 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     };
   }
+  // Проверяем, есть ли на странице кнопки для открытия модальных окон
+  const openReviewButtons = document.querySelectorAll(".open-modal");
+
+  if (openReviewButtons.length > 0) {
+    // Если кнопки существуют, продолжаем выполнение скрипта
+
+    // Получаем все модальные окна
+    const reviewModals = document.querySelectorAll(".modal-reviews");
+    // Получаем все кнопки для закрытия модальных окон
+    const closeReviewButtons = document.querySelectorAll(".close-reviews");
+
+    // Функция для открытия модального окна
+    const openReviewModal = (modal) => {
+      if (modal) {
+        modal.style.display = "flex"; // Показываем модальное окно
+      }
+    };
+
+    // Функция для закрытия модального окна
+    const closeReviewModal = (modal) => {
+      if (modal) {
+        modal.style.display = "none"; // Скрываем модальное окно
+      }
+    };
+
+    // Обработчик событий для кнопок открытия модальных окон
+    openReviewButtons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        openReviewModal(reviewModals[index]); // Открываем соответствующее модальное окно
+      });
+    });
+
+    // Обработчик событий для кнопок закрытия модальных окон
+    closeReviewButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const modal = button.closest(".modal-reviews"); // Находим родительское модальное окно
+        closeReviewModal(modal); // Закрываем модальное окно
+      });
+    });
+
+    // Закрытие модального окна при клике вне его содержимого
+    window.addEventListener("click", (event) => {
+      reviewModals.forEach((modal) => {
+        if (event.target === modal) {
+          closeReviewModal(modal); // Закрываем модальное окно, если кликнули вне его
+        }
+      });
+    });
+  }
 });

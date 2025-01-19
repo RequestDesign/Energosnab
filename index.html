@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=5f2fb3bc-4f36-4af2-b420-52b267e41a89" type="text/javascript"></script>
     <link rel="stylesheet" href="style/css/main.css">
 </head>
 <body>
@@ -59,7 +60,7 @@
         
     </header>
     <main>
-        <div class="main-index">
+        <section class="main-index">
             <div class="container">
                 <div class="main-index_content">
                     <a class="h1" href="main.html">Главная</a>
@@ -78,6 +79,11 @@
                 </div>
                 <button class="h2 text-index_h2" id="openModalButton"> 
                     Оставить заявку 
+                </button>
+                <button class="portfolio-item_btn h2 open-modal">Подробнее 
+                    <svg class="arr-port_svg" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.5C6.48 2.5 2 6.98 2 12.5C2 18.02 6.48 22.5 12 22.5C17.52 22.5 22 18.02 22 12.5C22 6.98 17.52 2.5 12 2.5ZM16.03 13.03L13.03 16.03C12.88 16.18 12.69 16.25 12.5 16.25C12.31 16.25 12.12 16.18 11.97 16.03C11.68 15.74 11.68 15.26 11.97 14.97L13.69 13.25H8.5C8.09 13.25 7.75 12.91 7.75 12.5C7.75 12.09 8.09 11.75 8.5 11.75H13.69L11.97 10.03C11.68 9.74 11.68 9.26 11.97 8.97C12.26 8.68 12.74 8.68 13.03 8.97L16.03 11.97C16.32 12.26 16.32 12.74 16.03 13.03Z" fill="white"/>
+                    </svg>    
                 </button>
                 <div class="modal" id="modal">
                     <div class="modal-content">
@@ -115,8 +121,39 @@
                         </div>
                     </div>
                 </div>
+                <div class="modal-reviews" id="modal">
+                    <div class="modal-content">
+                        <svg class="close-reviews" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.0005 19.0026L25.0146 27.0166C25.2818 27.2747 25.6396 27.4175 26.0111 27.4143C26.3825 27.411 26.7379 27.2621 27.0005 26.9994C27.2632 26.7367 27.4122 26.3814 27.4154 26.01C27.4186 25.6385 27.2758 25.2807 27.0178 25.0135L19.0037 16.9994L27.0178 8.98531C27.2758 8.71813 27.4186 8.36028 27.4154 7.98883C27.4122 7.61738 27.2632 7.26207 27.0005 6.99941C26.7379 6.73674 26.3825 6.58775 26.0111 6.58453C25.6396 6.5813 25.2818 6.72409 25.0146 6.98215L17.0005 14.9962L8.98644 6.98215C8.71805 6.73047 8.36227 6.59308 7.99439 6.59906C7.62651 6.60503 7.27538 6.7539 7.0153 7.01416C6.75523 7.27442 6.60661 7.62565 6.6009 7.99354C6.59518 8.36142 6.73282 8.7171 6.98469 8.98531L14.9974 16.9994L6.98327 25.0135C6.84797 25.1442 6.74004 25.3005 6.6658 25.4733C6.59155 25.6462 6.55247 25.8321 6.55083 26.0202C6.5492 26.2083 6.58504 26.3948 6.65628 26.5689C6.72751 26.743 6.8327 26.9012 6.96571 27.0342C7.09873 27.1672 7.2569 27.2724 7.431 27.3436C7.60511 27.4149 7.79165 27.4507 7.97976 27.4491C8.16786 27.4475 8.35376 27.4084 8.5266 27.3341C8.69943 27.2599 8.85576 27.152 8.98644 27.0166L17.0005 19.0026Z" fill="white"/>
+                        </svg>
+                        <div class="modal-inner-content">
+                            <div class="reviews-item_top">
+                                <div class="reviews-item_top-top">
+                                     <div class="reviews-item_top-left">
+                                    <img class="author" src="assest/image/review/author.png" alt="">
+                                    <div class="reviews-item_top-block">
+                                        <div class="reviews-author h3">Петр</div>
+                                        <div class="reviews-data txt-18 txt16 text-gray">29.09.2024</div>
+                                    </div>
+                                </div>
+                               
+                                <img class="star" src="assest/image/review/star.png" alt="">
+                                </div>
+                               
+                            </div>
+                            <div class="services-main_item-line"></div>
+                            <div class="reviews-item_bottom">
+                                <div class="reviews-item_bottom-text txt-18 txt16  text-gray">
+                                    Работать с такой компанией одно удовольствие! Недорого, качественно, надежно. За качество своих услуг они отвечают. Если что-то пошло не так с оборудованием - быстро заменят на работающее, пойдут на встречу и так далее. Был у нас один такой случай, когда взятый в аренду компрессор забарахлил. Привезли и установили новый в два счета. Это значительный показатель работы компании. А вообще оборудование они сдают в аренду все новое, качественное, так что, пожалуй, наш случай был исключением из правил. Больше за год ни разу ничего не ломалось и не подводило.
+                                </div>
+                            </div>
+
+                        </div>
+                        <img class="grop-index" src="assest/image/404/404-gz.png" alt="">
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
     <script src="script/index.js"></script>
 </body>
@@ -133,6 +170,10 @@
         justify-content: center;
         justify-items: center;
         gap: 4rem;
+    }
+    .portfolio-item_btn{
+        margin: 0;
+        margin-top: 15rem;
     }
     @media (max-width:48em) {
     .main-index{
