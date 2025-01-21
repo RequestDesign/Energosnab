@@ -767,6 +767,12 @@ main {
   background: url(../../assest/image/main/portfolio/пятна-btn.png) no-repeat top /
     cover;
 }
+.snav-left .arr-port_svg {
+  transform: scaleX(-1);
+}
+.snav-right .arr-port_svg {
+  transform: scaleX(-1);
+}
 #nextBtn {
   background: url(../../assest/image/main/portfolio/пятна-btn.png) no-repeat top /
     cover;
@@ -2894,7 +2900,7 @@ footer {
   justify-content: center;
   display: none;
   position: fixed;
-  z-index: 11;
+  z-index: 1100;
   left: 0;
   top: 0;
   width: 100%;
@@ -3104,10 +3110,27 @@ footer {
   /* justify-content: center; */
 }
 #showcase {
-  height: 74rem;
-  overflow: visible !important;
-  visibility: hidden;
+  height: 80rem;
+  overflow: hidden !important;
+  visibility: visible;
+  position: relative;
 }
+.main-3dswiper{
+  position: relative;
+}
+.main-3dswiper::before {
+  height: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(6, 11, 16, 0.5); 
+  z-index: 70;
+  transition: opacity 1s ease;
+}
+
 .main-3dswiper .main-content_btn {
   justify-content: center;
 }
@@ -3126,43 +3149,61 @@ footer {
 #showcase .center {
   margin-left: -15rem;
 }
-.active-card{
+.active-card {
   width: 40.8rem;
   height: 30rem;
   margin-left: -15rem;
-}   
-
+}
 #showcase .card {
-  transition: width 0.3s ease, height 0.3s ease; /* Smooth transition */
- }
-@media (min-width: 1920px) {
+  transition: width 0.3s ease, height 0.3s ease;
+}
+.modal-content_image {
+  width: 70rem; 
+  height: 90rem;
+  object-fit: cover;
+  position: relative;
+  border-radius: 2.4rem;
+}
+.modal-content_image .close{
+  top: 3.2rem;
+  right: 3.2rem;
+}
+@media (max-width: 1025px) {
   #showcase {
     margin: 0;
+    height: 100rem;
   }
 }
 @media (max-width: 48rem) {
-  .main-3dswiper .container{
+  .main-3dswiper .container {
     width: 71rem;
   }
   #showcase {
     margin: 0;
     width: 71rem;
-    height: 38rem;
+    height: 52rem;
   }
-  #showcase .card{
-    width: 19rem !important;
-    height: 13rem !important;
+  #showcase .card {
+    width: 23rem !important;
+    height: 17rem !important;
   }
-  #showcase .center{
+  #showcase .center {
     margin: 0;
   }
-  .active-card{
+  .active-card {
     margin: 0;
+  }
+  .modal-content_image{
+    width: 67rem;
+    height: 85rem;
+  }
+  #showcase .card img{
+    border-radius: 1.6rem;
+  }
+  .main-3dswiper::before{
+    height: 70%;
   }
 }
-
-
-
 
 .main-portfolio .swiper-slide {
   width: auto;

@@ -382,11 +382,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   $(function () {
     var showcase = $("#showcase");
+
     if (showcase.length) {
       var activeIndex = 0;
       function getYRadius() {
         if (window.matchMedia("(max-width: 48em)").matches) {
-          return 50; 
+          return 50;
         }
         return 200;
       }
@@ -394,6 +395,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Инициализация карусели с динамическим yRadius
       showcase.Cloud9Carousel({
         yRadius: getYRadius(),
+        yOrigin: 90,
         itemClass: "card",
         buttonLeft: $(".snav-left"),
         buttonRight: $(".snav-right"),
@@ -411,16 +413,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Обработчик клика на карточки
       showcase.on("click", ".card", function () {
-        var clickedIndex = $(this).index();
-        console.log(
-          "Clicked Index: " + clickedIndex + ", Active Index: " + activeIndex
-        );
+        var imgSrc = $(this).find("img").attr("src");
+        $("#modalImage").attr("src", imgSrc);
+        $("#modal").css("display", "flex");
+      });
 
-        if (clickedIndex !== activeIndex) {
-          activeIndex = clickedIndex;
-          console.log("New Active Index: " + activeIndex);
-          adjustCardSizes();
-          showcase.data("carousel").go(clickedIndex - activeIndex);
+      $("#closeModal").on("click", function () {
+        $("#modal").css("display", "none");
+      });
+
+      $("#modal").on("click", function (event) {
+        if ($(event.target).is("#modal")) {
+          $("#modal").css("display", "none"); 
         }
       });
 
@@ -430,13 +434,13 @@ document.addEventListener("DOMContentLoaded", function () {
           $(this).removeClass("active-card");
           $(this).css({ width: "34rem", height: "25rem" });
 
-          if (index === activeIndex) {
-            $(this).css({
-              width: "60.8rem",
-              height: "35rem",
-            });
-            $(this).addClass("active-card");
-          }
+          // if (index === activeIndex) {
+          //   $(this).css({
+          //     width: "60.8rem",
+          //     height: "35rem",
+          //   });
+          //   $(this).addClass("active-card");
+          // }
         });
       }
 
@@ -479,8 +483,8 @@ document.addEventListener("DOMContentLoaded", function () {
       $("#cloud9").on("mouseup", function (event) {
         mouseDown = false;
       });
+
       $(window).resize(function () {
-  
         showcase.data("carousel").yRadius = getYRadius();
         showcase.data("carousel").update();
       });
