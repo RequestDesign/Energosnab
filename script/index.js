@@ -391,11 +391,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return 200;
       }
+      function getyOrigin() {
+        if (window.matchMedia("(max-width: 48em)").matches) {
+          return 30;
+        }
+        return 90;
+      }
 
       // Инициализация карусели с динамическим yRadius
       showcase.Cloud9Carousel({
         yRadius: getYRadius(),
-        yOrigin: 90,
+        yOrigin: getyOrigin(),
         itemClass: "card",
         buttonLeft: $(".snav-left"),
         buttonRight: $(".snav-right"),
