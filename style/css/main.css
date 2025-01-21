@@ -1252,7 +1252,7 @@ main {
 
 .image-moving {
   width: auto;
-  height: 100%;
+  height: 60%;
 }
 
 @keyframes scrollText {
@@ -1288,7 +1288,7 @@ main {
     object-fit: contain;
   }
   .strip-container{
-    height: 9.7rem;
+    height: 12.7rem;
   }
 
   @keyframes scrollText {
