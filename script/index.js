@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     console.warn("Swiper контейнер не найден: .mySwiper1");
   }
+
   var swiperProjects = document.querySelector(".mySwiper2");
   if (swiperProjects) {
     var swiper = new Swiper(".mySwiper2", {
@@ -343,53 +344,146 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     };
   }
-  // Проверяем, есть ли на странице кнопки для открытия модальных окон
+
   const openReviewButtons = document.querySelectorAll(".open-modal");
-
   if (openReviewButtons.length > 0) {
-    // Если кнопки существуют, продолжаем выполнение скрипта
-
-    // Получаем все модальные окна
     const reviewModals = document.querySelectorAll(".modal-reviews");
-    // Получаем все кнопки для закрытия модальных окон
     const closeReviewButtons = document.querySelectorAll(".close-reviews");
 
-    // Функция для открытия модального окна
     const openReviewModal = (modal) => {
       if (modal) {
-        modal.style.display = "flex"; // Показываем модальное окно
+        modal.style.display = "flex";
       }
     };
-
-    // Функция для закрытия модального окна
     const closeReviewModal = (modal) => {
       if (modal) {
-        modal.style.display = "none"; // Скрываем модальное окно
+        modal.style.display = "none";
       }
     };
-
-    // Обработчик событий для кнопок открытия модальных окон
     openReviewButtons.forEach((button, index) => {
       button.addEventListener("click", () => {
-        openReviewModal(reviewModals[index]); // Открываем соответствующее модальное окно
+        openReviewModal(reviewModals[index]);
       });
     });
-
-    // Обработчик событий для кнопок закрытия модальных окон
     closeReviewButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        const modal = button.closest(".modal-reviews"); // Находим родительское модальное окно
-        closeReviewModal(modal); // Закрываем модальное окно
+        const modal = button.closest(".modal-reviews");
+        closeReviewModal(modal);
       });
     });
-
-    // Закрытие модального окна при клике вне его содержимого
     window.addEventListener("click", (event) => {
       reviewModals.forEach((modal) => {
         if (event.target === modal) {
-          closeReviewModal(modal); // Закрываем модальное окно, если кликнули вне его
+          closeReviewModal(modal);
         }
       });
     });
   }
+
+  $(function () {
+    var showcase = $("#showcase");
+    if (showcase.length) {
+      var activeIndex = 0;
+      function getYRadius() {
+        if (window.matchMedia("(max-width: 48em)").matches) {
+          return 50; 
+        }
+        return 200;
+      }
+
+      // Инициализация карусели с динамическим yRadius
+      showcase.Cloud9Carousel({
+        yRadius: getYRadius(),
+        itemClass: "card",
+        buttonLeft: $(".snav-left"),
+        buttonRight: $(".snav-right"),
+        bringToFront: true,
+        onLoaded: function () {
+          showcase.css("visibility", "visible");
+          showcase.fadeIn(100);
+          adjustCardSizes();
+        },
+        onChange: function (newIndex) {
+          activeIndex = newIndex;
+          adjustCardSizes();
+        },
+      });
+
+      // Обработчик клика на карточки
+      showcase.on("click", ".card", function () {
+        var clickedIndex = $(this).index();
+        console.log(
+          "Clicked Index: " + clickedIndex + ", Active Index: " + activeIndex
+        );
+
+        if (clickedIndex !== activeIndex) {
+          activeIndex = clickedIndex;
+          console.log("New Active Index: " + activeIndex);
+          adjustCardSizes();
+          showcase.data("carousel").go(clickedIndex - activeIndex);
+        }
+      });
+
+      function adjustCardSizes() {
+        var cards = showcase.find(".card");
+        cards.each(function (index) {
+          $(this).removeClass("active-card");
+          $(this).css({ width: "34rem", height: "25rem" });
+
+          if (index === activeIndex) {
+            $(this).css({
+              width: "60.8rem",
+              height: "35rem",
+            });
+            $(this).addClass("active-card");
+          }
+        });
+      }
+
+      // Обработка касаний и мыши
+      $("#cloud9").on("touchstart", function (event) {
+        var xClick = event.originalEvent.touches[0].pageX;
+        $(this).one("touchmove", function (event) {
+          var xMove = event.originalEvent.touches[0].pageX;
+          if (Math.floor(xClick - xMove) > 5) {
+            $(this).data("carousel").go(1);
+            $(this).off("touchmove");
+          } else if (Math.floor(xClick - xMove) < -5) {
+            $(this).data("carousel").go(-1);
+            $(this).off("touchmove");
+          }
+        });
+        $("#cloud9").on("touchend", function () {
+          $(this).off("touchmove");
+        });
+      });
+
+      var xClick;
+      var mouseDown;
+      $("#cloud9").on("mousedown", function (event) {
+        xClick = event.pageX;
+        mouseDown = true;
+      });
+      $("#cloud9").on("mousemove", function (event) {
+        if (mouseDown) {
+          var xMove = event.pageX;
+          if (Math.floor(xClick - xMove) > 5) {
+            $(this).data("carousel").go(1);
+            mouseDown = false;
+          } else if (Math.floor(xClick - xMove) < -5) {
+            $(this).data("carousel").go(-1);
+            mouseDown = false;
+          }
+        }
+      });
+      $("#cloud9").on("mouseup", function (event) {
+        mouseDown = false;
+      });
+      $(window).resize(function () {
+  
+        showcase.data("carousel").yRadius = getYRadius();
+        showcase.data("carousel").update();
+      });
+    }
+  });
 });

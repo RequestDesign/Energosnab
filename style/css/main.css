@@ -50,7 +50,12 @@ body {
   color: white;
   background-color: rgba(6, 11, 16, 1);
 }
-
+.swiper-slide {
+  width: auto;
+}
+.swiper {
+  margin: 0;
+}
 input,
 textarea {
   -webkit-animation: bugfix infinite 1s;
@@ -758,7 +763,16 @@ main {
   background: url(../../assest/image/main/portfolio/пятна-btn.png) no-repeat top /
     cover;
 }
+.snav-left {
+  background: url(../../assest/image/main/portfolio/пятна-btn.png) no-repeat top /
+    cover;
+}
 #nextBtn {
+  background: url(../../assest/image/main/portfolio/пятна-btn.png) no-repeat top /
+    cover;
+  transform: scaleX(-1);
+}
+.snav-right {
   background: url(../../assest/image/main/portfolio/пятна-btn.png) no-repeat top /
     cover;
   transform: scaleX(-1);
@@ -2701,6 +2715,7 @@ footer {
   border-radius: 2.4rem;
   object-fit: cover;
 }
+
 @media (max-width: 48em) {
   .mySwiper2 {
     width: 71rem;
@@ -2714,6 +2729,9 @@ footer {
     height: 76rem;
   }
   .project-content_bottom {
+    width: 100%;
+  }
+  .main-3dswiper .container {
     width: 100%;
   }
 }
@@ -2753,7 +2771,7 @@ footer {
   width: 128rem;
 }
 .new-content_top-block .video-project,
-.image-slide {
+.new-content_top-block .image-slide {
   width: 40rem;
   height: 48rem;
 }
@@ -2773,7 +2791,7 @@ footer {
     gap: 4.8rem;
   }
   .new-content_top-block .video-project,
-  .image-slide {
+  .new-content_top-block .image-slide {
     width: 71rem;
     height: 76rem;
   }
@@ -2806,19 +2824,16 @@ footer {
   transition: transform 2s ease, width 0.5s ease, height 0.5s ease,
     opacity 1s ease;
 }
-
 .mySwiper4 .swiper-slide img {
   border-radius: 2.4rem;
   transition: all 1.5s ease;
 }
-
 .mySwiper4 .swiper-slide.left img {
   width: 44rem;
   height: 55rem;
   opacity: 0.8;
   object-fit: cover;
 }
-
 .mySwiper4 .swiper-slide.center img {
   width: 80rem;
   height: 55rem;
@@ -2826,14 +2841,12 @@ footer {
   object-fit: cover;
   object-position: 80% 0%;
 }
-
 .mySwiper4 .swiper-slide.right img {
   width: 41rem;
   height: 37rem;
   opacity: 0.8;
   object-fit: cover;
 }
-
 .mySwiper4 .main-content_btn {
   position: absolute;
   bottom: 0;
@@ -3085,12 +3098,72 @@ footer {
   }
 }
 
-.swiper-slide {
-  width: auto;
+.main-3dswiper .container {
+  width: 153rem;
+  /* display: grid; */
+  /* justify-content: center; */
 }
-.swiper {
-  margin: 0;
+#showcase {
+  height: 74rem;
+  overflow: visible !important;
+  visibility: hidden;
 }
+.main-3dswiper .main-content_btn {
+  justify-content: center;
+}
+#showcase .card {
+  width: 34rem;
+  height: 34rem;
+  cursor: pointer;
+  display: flex;
+}
+#showcase .card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 2.4rem;
+  object-fit: cover;
+}
+#showcase .center {
+  margin-left: -15rem;
+}
+.active-card{
+  width: 40.8rem;
+  height: 30rem;
+  margin-left: -15rem;
+}   
+
+#showcase .card {
+  transition: width 0.3s ease, height 0.3s ease; /* Smooth transition */
+ }
+@media (min-width: 1920px) {
+  #showcase {
+    margin: 0;
+  }
+}
+@media (max-width: 48rem) {
+  .main-3dswiper .container{
+    width: 71rem;
+  }
+  #showcase {
+    margin: 0;
+    width: 71rem;
+    height: 38rem;
+  }
+  #showcase .card{
+    width: 19rem !important;
+    height: 13rem !important;
+  }
+  #showcase .center{
+    margin: 0;
+  }
+  .active-card{
+    margin: 0;
+  }
+}
+
+
+
+
 .main-portfolio .swiper-slide {
   width: auto;
 }
