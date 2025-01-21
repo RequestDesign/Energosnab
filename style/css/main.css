@@ -301,12 +301,13 @@ section {
 
 .header-link_section {
   width: 15rem;
-  border: 1px solid rgba(56, 60, 64, 1);
+  min-height: 5rem;
+  border: 1px solid rgb(56, 60, 64);
   position: relative;
   text-align: center;
-  padding: 1.134rem 0;
+  padding: 1.2rem 0 0 0px;
   border-radius: 1.4rem;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
 .header-link_option {
   display: none;
@@ -321,7 +322,10 @@ section {
 }
 .header-link_section:hover .header-link_option {
   display: grid;
-  padding-top: 1.5rem;
+  margin-top: 1.6rem;
+  background-color: rgba(6, 11, 16, 0.95);
+  border-radius: 1.4rem;
+  z-index: 6;
 }
 .link_option {
   padding: 1.5rem 0 1.5rem 0;
