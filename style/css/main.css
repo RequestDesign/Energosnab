@@ -2471,7 +2471,7 @@ footer {
     transition: max-height 0.3s ease;
   }
   .services-hidden {
-    max-height: 12.6rem;
+    max-height: 12rem;
     display: -webkit-box;
     display: box;
     -webkit-box-orient: vertical;
