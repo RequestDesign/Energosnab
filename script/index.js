@@ -127,6 +127,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   var myMap;
+  var myMap2;
+
   window.onload = function () {
     ymaps.ready(function () {
       if (document.getElementById("map")) {
@@ -188,13 +190,16 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       updateAddressPosition();
-
       myPlacemark.events.add("drag", updateAddressPosition);
       myPlacemark.events.add("dragend", updateAddressPosition);
     }
 
     function initMap2() {
-      var myMap2 = new ymaps.Map("map2", {
+      if (myMap2) {
+        myMap2.destroy();
+      }
+
+      myMap2 = new ymaps.Map("map2", {
         center: [43.4231, 39.9257],
         zoom: 16,
         controls: ["zoomControl"],
@@ -213,17 +218,21 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       myMap2.geoObjects.add(myPlacemark2);
     }
-  };
+    
+    document.querySelectorAll(".addresses-link").forEach((button) => {
+      button.addEventListener("click", function () {
+        document
+          .querySelectorAll(".addresses-link")
+          .forEach((btn) => btn.classList.remove("addresses-link_active"));
+        this.classList.add("addresses-link_active");
+        init(this.dataset.city);
 
-  document.querySelectorAll(".addresses-link").forEach((button) => {
-    button.addEventListener("click", function () {
-      document
-        .querySelectorAll(".addresses-link")
-        .forEach((btn) => btn.classList.remove("addresses-link_active"));
-      this.classList.add("addresses-link_active");
-      init(this.dataset.city);
+        if (this.dataset.city === "sochi" && document.getElementById("map2")) {
+          initMap2();
+        }
+      });
     });
-  });
+  };
 
   const buttons = document.querySelectorAll(".addresses-link");
   const descriptions = document.querySelectorAll(".addresses_top-description");
@@ -430,7 +439,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       $("#modal").on("click", function (event) {
         if ($(event.target).is("#modal")) {
-          $("#modal").css("display", "none"); 
+          $("#modal").css("display", "none");
         }
       });
 

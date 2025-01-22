@@ -1332,16 +1332,16 @@ main {
   border-radius: 2.4rem;
   overflow: hidden;
 }
-#map {
+.size-main_map {
   width: 40rem;
   height: 43rem;
   border-radius: 2.4rem;
 }
-#map2 {
+/* #map2 {
   width: 40rem;
   height: 43rem;
   border-radius: 2.4rem;
-}
+} */
 
 .contacts-addresses_top {
   display: grid;
@@ -1575,7 +1575,7 @@ main {
     height: auto;
     gap: 8rem;
   }
-  #map {
+  .size-main_map{
     width: 71rem;
     height: 86rem;
   }
@@ -2251,11 +2251,13 @@ footer {
   border: 1px solid rgba(56, 60, 64, 1);
   height: auto;
 }
-.main-contacts #map {
+.size-contacts_map {
   width: 80rem;
+  height: 52rem;
 }
-.main-contacts #map2 {
+.size-contacts_map {
   width: 80rem;
+  height: 52rem;
 }
 @media (max-width: 48em) {
   .main-title {
@@ -2270,12 +2272,12 @@ footer {
   .main-contacts_content-top {
     gap: 4.8rem;
   }
-  .main-contacts #map {
+  .size-contacts_map{
     width: 71rem;
     height: 52rem;
     border-radius: 3.2rem;
   }
-  .main-contacts #map2 {
+  .size-contacts_map {
     width: 71rem;
     height: 52rem;
     border-radius: 3.2rem;
