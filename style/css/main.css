@@ -1919,6 +1919,9 @@ footer {
     margin-top: 15.5rem;
     margin-bottom: 4rem;
   }
+  .request_content-top_text{
+    width: fit-content;
+  }
   .main-catalog_content {
     gap: 3.2rem;
   }
@@ -3037,6 +3040,9 @@ footer {
 @media (max-width: 48em) {
   .main-reviews_content {
     gap: 8rem;
+  }
+  .reviews-content_main{
+    display: grid;
   }
   .reviews-content_main-item {
     width: 100%;
