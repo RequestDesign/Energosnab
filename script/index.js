@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       myMap2.geoObjects.add(myPlacemark2);
     }
-    
+
     document.querySelectorAll(".addresses-link").forEach((button) => {
       button.addEventListener("click", function () {
         document
@@ -390,119 +390,78 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   $(function () {
-    var showcase = $("#showcase");
-
-    if (showcase.length) {
-      var activeIndex = 0;
-      function getYRadius() {
-        if (window.matchMedia("(max-width: 48em)").matches) {
-          return 50;
-        }
-        return 200;
+    var activeIndex = 0;
+    function getYRadius() {
+      if (window.matchMedia("(max-width: 48em)").matches) {
+        return 50;
       }
-      function getyOrigin() {
-        if (window.matchMedia("(max-width: 48em)").matches) {
-          return 30;
-        }
-        return 90;
-      }
-
-      // Инициализация карусели с динамическим yRadius
-      showcase.Cloud9Carousel({
-        yRadius: getYRadius(),
-        yOrigin: getyOrigin(),
-        itemClass: "card",
-        buttonLeft: $(".snav-left"),
-        buttonRight: $(".snav-right"),
-        bringToFront: true,
-        onLoaded: function () {
-          showcase.css("visibility", "visible");
-          showcase.fadeIn(100);
-          adjustCardSizes();
-        },
-        onChange: function (newIndex) {
-          activeIndex = newIndex;
-          adjustCardSizes();
-        },
-      });
-
-      // Обработчик клика на карточки
-      showcase.on("click", ".card", function () {
-        var imgSrc = $(this).find("img").attr("src");
-        $("#modalImage").attr("src", imgSrc);
-        $("#modal").css("display", "flex");
-      });
-
-      $("#closeModal").on("click", function () {
-        $("#modal").css("display", "none");
-      });
-
-      $("#modal").on("click", function (event) {
-        if ($(event.target).is("#modal")) {
-          $("#modal").css("display", "none");
-        }
-      });
-
-      function adjustCardSizes() {
-        var cards = showcase.find(".card");
-        cards.each(function (index) {
-          $(this).removeClass("active-card");
-          $(this).css({ width: "34rem", height: "25rem" });
-
-          // if (index === activeIndex) {
-          //   $(this).css({
-          //     width: "60.8rem",
-          //     height: "35rem",
-          //   });
-          //   $(this).addClass("active-card");
-          // }
-        });
-      }
-
-      // Обработка касаний и мыши
-      $("#cloud9").on("touchstart", function (event) {
-        var xClick = event.originalEvent.touches[0].pageX;
-        $(this).one("touchmove", function (event) {
-          var xMove = event.originalEvent.touches[0].pageX;
-          if (Math.floor(xClick - xMove) > 5) {
-            $(this).data("carousel").go(1);
-            $(this).off("touchmove");
-          } else if (Math.floor(xClick - xMove) < -5) {
-            $(this).data("carousel").go(-1);
-            $(this).off("touchmove");
-          }
-        });
-        $("#cloud9").on("touchend", function () {
-          $(this).off("touchmove");
-        });
-      });
-
-      var xClick;
-      var mouseDown;
-      $("#cloud9").on("mousedown", function (event) {
-        xClick = event.pageX;
-        mouseDown = true;
-      });
-      $("#cloud9").on("mousemove", function (event) {
-        if (mouseDown) {
-          var xMove = event.pageX;
-          if (Math.floor(xClick - xMove) > 5) {
-            $(this).data("carousel").go(1);
-            mouseDown = false;
-          } else if (Math.floor(xClick - xMove) < -5) {
-            $(this).data("carousel").go(-1);
-            mouseDown = false;
-          }
-        }
-      });
-      $("#cloud9").on("mouseup", function (event) {
-        mouseDown = false;
-      });
-
-      $(window).resize(function () {
-        showcase.data("carousel").yRadius = getYRadius();
-        showcase.data("carousel").update();
-      });
+      return 200;
     }
+    function getyOrigin() {
+      if (window.matchMedia("(max-width: 48em)").matches) {
+        return 30;
+      }
+      return 90;
+    }
+    $("#cloud9").Cloud9Carousel({
+      bringToFront: true,
+      buttonLeft: $(".snav-left"),
+      buttonRight: $(".snav-right"),
+      frontItemClass: "active-card",
+      yRadius: getYRadius(),
+      yOrigin: getyOrigin(),
+    });
+    $("#cloud9").on("click", ".cloud9-item", function () {
+      var imgSrc = $(this).attr("src");
+      $("#modalImage").attr("src", imgSrc);
+      $("#modal").css("display", "flex");
+    });
+    $("#closeModal").on("click", function () {
+      $("#modal").css("display", "none");
+    });
+    $("#modal").on("click", function (event) {
+      if ($(event.target).is("#modal")) {
+        $("#modal").css("display", "none");
+      }
+    });
+
+    $("#cloud9").on("touchstart", function (event) {
+      var xClick = event.originalEvent.touches[0].pageX;
+      $(this).one("touchmove", function (event) {
+        var xMove = event.originalEvent.touches[0].pageX;
+        if (Math.floor(xClick - xMove) > 5) {
+          $(this).data("carousel").go(1);
+          $(this).off("touchmove");
+        } else if (Math.floor(xClick - xMove) < -5) {
+          $(this).data("carousel").go(-1);
+          $(this).off("touchmove");
+        }
+      });
+      $("#cloud9").on("touchend", function () {
+        $(this).off("touchmove");
+      });
+    });
+    var xClick;
+    var mouseDown;
+    $("#cloud9").on("mousedown", function (event) {
+      xClick = event.pageX;
+      mouseDown = true;
+    });
+    $("#cloud9").on("mousemove", function (event) {
+      if (mouseDown) {
+        var xMove = event.pageX;
+        if (Math.floor(xClick - xMove) > 5) {
+          $(this).data("carousel").go(1);
+          mouseDown = false;
+        } else if (Math.floor(xClick - xMove) < -5) {
+          $(this).data("carousel").go(-1);
+          mouseDown = false;
+        }
+      }
+    });
+    $("#cloud9").on("mouseup", function (event) {
+      mouseDown = false;
+    });
   });
+
 });
