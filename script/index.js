@@ -61,12 +61,15 @@ document.addEventListener("DOMContentLoaded", function () {
       grabCursor: true,
       breakpoints: {
         789: {
+          loop: true,
           slidesPerView: 3,
           spaceBetween: 26,
         },
         0: {
+          loop: true,
+          centeredSlides: false,
           slidesPerView: "auto",
-          spaceBetween: 22,
+          spaceBetween: 20,
         },
       },
       on: {
@@ -96,8 +99,23 @@ document.addEventListener("DOMContentLoaded", function () {
     console.warn("Swiper контейнер не найден: .mySwiper4");
   }
 
-  const items = document.querySelectorAll(".working-block_item");
+  const catalogButtons = document.querySelectorAll(".catalog-content_btn");
 
+  if (catalogButtons.length > 0) {
+    catalogButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        catalogButtons.forEach((btn) =>
+          btn.classList.remove("catalog-content_btn-active")
+        );
+
+        if (!this.classList.contains("catalog-content_btn-active")) {
+          this.classList.add("catalog-content_btn-active"); 
+        }
+      });
+    });
+  }
+
+  const items = document.querySelectorAll(".working-block_item");
   if (items.length > 0) {
     items.forEach((item) => {
       const topItem = item.querySelector(".services-item_top");
@@ -463,5 +481,4 @@ document.addEventListener("DOMContentLoaded", function () {
       mouseDown = false;
     });
   });
-
 });

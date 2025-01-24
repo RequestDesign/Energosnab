@@ -51,7 +51,7 @@ body {
   background-color: rgba(6, 11, 16, 1);
 }
 .swiper-slide {
-  width: auto;
+  width: auto !important;
 }
 .swiper {
   margin: 0;
@@ -562,6 +562,10 @@ main {
     padding: 2vh 4.267vw 40px 4.267vw;
     z-index: 7;
     overflow-y: auto;
+  }
+  .header-link_section:hover .header-link_option{
+    background: none;
+    margin-top: 0;
   }
   .header-content_links-block {
     display: grid;
@@ -1779,11 +1783,12 @@ footer {
   display: flex;
   align-items: center;
   gap: 4rem;
+  width: fit-content;
 }
 .catalog-content_btn {
   display: flex;
   align-items: center;
-  width: auto;
+  width: fit-content;
   height: 5.5rem;
   padding: 0 2.4rem;
   border: 1px solid rgba(255, 255, 255, 1);
@@ -2209,6 +2214,9 @@ footer {
   .left-specifications_content-line_more {
     white-space: nowrap;
   }
+  .left-specifications_content-line{
+    align-items: end;
+  }
   .productcard-btn {
     height: 7.2rem;
     font-size: 2.8rem;
@@ -2400,9 +2408,11 @@ footer {
   gap: 2.4rem;
 }
 .certificates-content_block {
+
   position: relative;
   justify-content: center;
   display: flex;
+  flex-wrap: wrap;
   gap: 4rem;
   margin-top: 5rem;
 }
@@ -2892,6 +2902,7 @@ footer {
     width: 64rem !important;
     height: 68rem !important;
     border-radius: 3.2rem;
+    transition: none;
   }
   .mySwiper4 .swiper-slide {
     width: 64rem !important;
