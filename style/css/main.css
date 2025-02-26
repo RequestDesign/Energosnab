@@ -1649,6 +1649,9 @@ footer {
   color: rgba(155, 157, 159, 1);
   font-size: 1.4rem;
 }
+.footer-top_block-text:hover{
+  color: rgb(211, 211, 211);
+}
 .footer-content_main {
   display: flex;
   gap: 17rem;
