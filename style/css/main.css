@@ -82,6 +82,7 @@ textarea {
   outline: none;
   cursor: pointer;
   font: inherit;
+  resize: none;
 }
 button:focus,
 input:focus,
