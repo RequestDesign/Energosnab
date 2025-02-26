@@ -2952,7 +2952,7 @@ footer {
 }
 
 /* модал */
-#modal {
+.modal {
   align-items: center;
   justify-content: center;
   display: none;
@@ -2977,7 +2977,7 @@ footer {
   width: 113.4rem;
   height: 53.2rem;
 }
-.close,
+.closeModalRequest,
 .close-reviews {
   width: 3.4rem;
   height: 3.4rem;

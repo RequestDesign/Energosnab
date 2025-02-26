@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         if (!this.classList.contains("catalog-content_btn-active")) {
-          this.classList.add("catalog-content_btn-active"); 
+          this.classList.add("catalog-content_btn-active");
         }
       });
     });
@@ -352,21 +352,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  const modal = document.getElementById("modal");
-  const openModalButton = document.getElementById("openModalButton");
-  const closeModalButton = document.getElementById("closeModalButton");
+  const modal = document.querySelector(".modal-request");
+  const openModalButtons = document.querySelectorAll(".openModalRequest");
+  const closeModalButton = document.querySelector(".closeModalRequest");
 
-  if (modal && openModalButton && closeModalButton) {
-    openModalButton.onclick = function () {
-      modal.style.display = "flex";
-    };
+  if (modal && openModalButtons.length > 0 && closeModalButton) {
+    openModalButtons.forEach((button) => {
+      button.onclick = function () {
+        modal.style.display = "flex";
+      };
+    });
 
     closeModalButton.onclick = function () {
       modal.style.display = "none";
     };
 
     window.onclick = function (event) {
-      if (event.target == modal) {
+      if (event.target === modal) {
         modal.style.display = "none";
       }
     };
