@@ -292,6 +292,7 @@ section {
   min-height: 5rem;
   padding: 0 3.7rem;
   border-radius: 1.4rem;
+  transition: background-color 0.3s ease, border-color .3s ease-in; 
 }
 .header-link:hover {
   border-color: white;
@@ -330,6 +331,7 @@ section {
 .link_option {
   padding: 1.5rem 0 1.5rem 0;
   color: rgba(155, 157, 159, 1);
+  transition: background-color 0.3s ease, border-color .3s ease-in; 
 }
 .link_option:hover {
   background: white;
@@ -359,7 +361,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("../../assest/image/btn/пятна.png");
+  background-image: url("../../assest/image/btn/spot.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -714,14 +716,16 @@ main {
   gap: 1.6rem;
   margin-bottom: -2rem;
   height: auto;
+  transition: color 0.2s ease;
 }
 .portfolio-item_btn:hover {
   color: rgba(224, 138, 18, 1);
 }
-.portfolio-item_btn:hover .arr-port_svg {
-  display: none;
+.portfolio-item_btn:hover .arr-port_svg path{
+  fill: rgba(224, 138, 18, 1);
+  /* display: none; */
 }
-.portfolio-item_btn:hover::after {
+/* .portfolio-item_btn:hover::after {
   content: "";
   display: inline-block;
   width: 2.4rem;
@@ -729,10 +733,11 @@ main {
   background: url('data:image/svg+xml;utf8,<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5C6.48 2.5 2 6.98 2 12.5C2 18.02 6.48 22.5 12 22.5C17.52 22.5 22 18.02 22 12.5C22 6.98 17.52 2.5 12 2.5ZM16.03 13.03L13.03 16.03C12.88 16.18 12.69 16.25 12.5 16.25C12.31 16.25 12.12 16.18 11.97 16.03C11.68 15.74 11.68 15.26 11.97 14.97L13.69 13.25H8.5C8.09 13.25 7.75 12.91 7.75 12.5C7.75 12.09 8.09 11.75 8.5 11.75H13.69L11.97 10.03C11.68 9.74 11.68 9.26 11.97 8.97C12.26 8.68 12.74 8.68 13.03 8.97L16.03 11.97C16.32 12.26 16.32 12.74 16.03 13.03Z" fill="%23E08A12"/></svg>')
     no-repeat center center;
   background-size: contain;
-}
+} */
 .arr-port_svg {
   width: 2.4rem;
   height: 2.4rem;
+  transition: fill 0.3s ease;
 }
 .main-container {
   overflow: hidden;
@@ -768,11 +773,11 @@ main {
   transform: scaleX(-1);
 }
 #prevBtn {
-  background: url(../../assest/image/main/portfolio/пятна-btn.png) no-repeat top /
+  background: url(../../assest/image/main/portfolio/spot-btn_snav.png) no-repeat top /
     cover;
 }
 .snav-left {
-  background: url(../../assest/image/main/portfolio/пятна-btn.png) no-repeat top /
+  background: url(../../assest/image/main/portfolio/spot-btn_snav.png) no-repeat top /
     cover;
 }
 .snav-left .arr-port_svg {
@@ -782,12 +787,12 @@ main {
   transform: scaleX(-1);
 }
 #nextBtn {
-  background: url(../../assest/image/main/portfolio/пятна-btn.png) no-repeat top /
+  background: url(../../assest/image/main/portfolio/spot-btn_snav.png) no-repeat top /
     cover;
   transform: scaleX(-1);
 }
 .snav-right {
-  background: url(../../assest/image/main/portfolio/пятна-btn.png) no-repeat top /
+  background: url(../../assest/image/main/portfolio/spot-btn_snav.png) no-repeat top /
     cover;
   transform: scaleX(-1);
 }
@@ -1016,6 +1021,7 @@ main {
   border: 1px solid rgba(56, 60, 64, 1);
   border-radius: 2.4rem;
   display: block;
+  transition: background 0.5s ease;
 }
 .services-main_item:hover {
   background: url("../../assest/image/main/services/areanda.png") no-repeat top /
@@ -1373,6 +1379,10 @@ main {
   justify-content: center;
   height: 4.7rem;
   width: 10.2rem;
+  transition: border .3s ease;
+}
+.addresses-link:hover{
+  border: 1px solid white;
 }
 .description-tel_title {
   color: rgba(155, 157, 159, 1);
@@ -1391,6 +1401,10 @@ main {
 .description-tel_block {
   display: grid;
   gap: 1.2rem;
+  transition: color .3s ease;
+}
+.description-tel_block a:hover{
+  color: rgba(155, 157, 159, 1);
 }
 .contacts-addresses_bottom {
   display: grid;
@@ -1413,6 +1427,10 @@ main {
   width: 4rem;
   height: 4rem;
   margin: 1.5rem;
+  opacity: 1;
+}
+.link-soe_image:hover {
+  opacity: 0.8;
 }
 .contacts-main_request {
   display: grid;
@@ -1646,6 +1664,9 @@ footer {
 .footer-main_block-item {
   color: rgba(155, 157, 159, 1);
 }
+.footer-main_block-item:hover{
+  color:rgb(211, 211, 211);
+}
 .footer-content_bottom {
   border: 1px solid rgba(56, 60, 64, 1);
   border-radius: 2.4rem;
@@ -1793,9 +1814,13 @@ footer {
   padding: 0 2.4rem;
   border: 1px solid rgba(255, 255, 255, 1);
   border-radius: 1.4rem;
+  transition: border-color .3s ease;
+}
+.catalog-content_btn:hover{
+  border-color: rgba(155, 157, 159, 1);
 }
 .catalog-content_btn-active {
-  background: url("../../assest/image/catalog/пятн.png") no-repeat top / cover;
+  background: url("../../assest/image/catalog/spot-catalog.png") no-repeat top / cover;
 }
 .main-catalog_content {
   display: grid;
@@ -1820,6 +1845,7 @@ footer {
   border-radius: 2.4rem;
   border: 1px solid rgba(56, 60, 64, 1);
 }
+
 .product_content-item_image {
   background: rgba(0, 0, 0, 1);
   height: 40rem;
@@ -1897,7 +1923,7 @@ footer {
   padding: 4rem;
   border: 1px solid rgba(56, 60, 64, 1);
   border-radius: 2.4rem;
-  background: url("../../assest/image/catalog/пятно3.png") no-repeat;
+  background: url("../../assest/image/catalog/spot3.png") no-repeat;
 }
 .main-request_content-bottom {
   width: 84rem;
@@ -2015,7 +2041,7 @@ footer {
     height: 4rem;
   }
   .main-request_content {
-    background: url("../../assest/image/catalog/пятно3-rigth.png") no-repeat
+    background: url("../../assest/image/catalog/spot3-rigth.png") no-repeat
       right;
   }
   .main-request_content-bottom .request-form_bottom {
@@ -2122,9 +2148,13 @@ footer {
   border: 1px solid rgba(255, 255, 255, 1);
   border-radius: 1.4rem;
   padding: 0 2.4rem;
+  transition: border-color .3s
+}
+.productcard-btn:hover{
+  border-color: rgba(255, 255, 255, 0.6);
 }
 .productcard-btn_active {
-  background: url("../../assest/image/btn/пятна-btn_card.png") no-repeat;
+  background: url("../../assest/image/btn/spot-btn_card.png") no-repeat;
   background-size: 100% 100%;
 }
 
@@ -2257,6 +2287,10 @@ footer {
 .contacts-block {
   display: grid;
   gap: 2rem;
+  transition: color .3s ease;
+}
+.contacts-block a:hover{
+  color: rgba(255, 255, 255, 0.718);
 }
 .contacts-content_line {
   border: 1px solid rgba(56, 60, 64, 1);
