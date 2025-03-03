@@ -71,8 +71,8 @@ textarea::-webkit-scrollbar {
 }
 textarea::-webkit-scrollbar-track {
   background: transparent;
-  margin-top: 5px; 
-  margin-bottom: 5px; 
+  margin-top: 5px;
+  margin-bottom: 5px;
   margin-right: 5rem;
 }
 textarea::-webkit-scrollbar-thumb {
@@ -80,7 +80,7 @@ textarea::-webkit-scrollbar-thumb {
   border-radius: 4px;
 }
 textarea::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
 a {
   color: unset;
@@ -307,7 +307,7 @@ section {
   min-height: 5rem;
   padding: 0 3.7rem;
   border-radius: 1.4rem;
-  transition: background-color 0.3s ease, border-color .3s ease-in; 
+  transition: background-color 0.3s ease, border-color 0.3s ease-in;
 }
 .header-link:hover {
   border-color: white;
@@ -346,7 +346,7 @@ section {
 .link_option {
   padding: 1.5rem 0 1.5rem 0;
   color: rgba(155, 157, 159, 1);
-  transition: background-color 0.3s ease, border-color .3s ease-in; 
+  transition: background-color 0.3s ease, border-color 0.3s ease-in;
 }
 .link_option:hover {
   background: white;
@@ -580,7 +580,7 @@ main {
     z-index: 7;
     overflow-y: auto;
   }
-  .header-link_section:hover .header-link_option{
+  .header-link_section:hover .header-link_option {
     background: none;
     margin-top: 0;
   }
@@ -684,6 +684,10 @@ main {
   position: absolute;
   top: 50rem;
 }
+.line-modal {
+  display: none;
+  position: absolute;
+}
 .line-number2 {
   width: 118rem;
   height: 196.5rem;
@@ -736,7 +740,7 @@ main {
 .portfolio-item_btn:hover {
   color: rgba(224, 138, 18, 1);
 }
-.portfolio-item_btn:hover .arr-port_svg path{
+.portfolio-item_btn:hover .arr-port_svg path {
   fill: rgba(224, 138, 18, 1);
   /* display: none; */
 }
@@ -765,6 +769,7 @@ main {
   width: 83.9rem;
   height: 47.4rem;
   border-radius: 2.4rem;
+  object-fit: cover;
 }
 .portfolio-main_block {
   overflow: hidden;
@@ -788,12 +793,12 @@ main {
   transform: scaleX(-1);
 }
 #prevBtn {
-  background: url(../../assest/image/main/portfolio/spot-btn_snav.png) no-repeat top /
-    cover;
+  background: url(../../assest/image/main/portfolio/spot-btn_snav.png) no-repeat
+    top / cover;
 }
 .snav-left {
-  background: url(../../assest/image/main/portfolio/spot-btn_snav.png) no-repeat top /
-    cover;
+  background: url(../../assest/image/main/portfolio/spot-btn_snav.png) no-repeat
+    top / cover;
 }
 .snav-left .arr-port_svg {
   transform: scaleX(-1);
@@ -802,21 +807,30 @@ main {
   transform: scaleX(-1);
 }
 #nextBtn {
-  background: url(../../assest/image/main/portfolio/spot-btn_snav.png) no-repeat top /
-    cover;
+  background: url(../../assest/image/main/portfolio/spot-btn_snav.png) no-repeat
+    top / cover;
   transform: scaleX(-1);
 }
 .snav-right {
-  background: url(../../assest/image/main/portfolio/spot-btn_snav.png) no-repeat top /
-    cover;
+  background: url(../../assest/image/main/portfolio/spot-btn_snav.png) no-repeat
+    top / cover;
   transform: scaleX(-1);
 }
 @media (max-width: 48em) {
   .fon-spot_portfolio {
-    display: none;
+    top: -31rem;
+    left: -30rem;
   }
   .line-number {
-    top: 106rem;
+    top: 98rem;
+  }
+  .line-modal {
+    display: flex;
+    top: -179rem;
+    z-index: -1;
+    width: 65rem;
+    height: -webkit-fill-available;
+    bottom: -9rem;
   }
   .main-portfolio {
     margin: 2rem 2rem 20rem 2rem;
@@ -961,7 +975,7 @@ main {
     gap: 1.6rem;
   }
   .numbers-top_title {
-    width: 100%;
+    width: 84%;
   }
   .numbers-content_main {
     display: grid;
@@ -1256,40 +1270,30 @@ main {
   gap: 14rem;
 }
 
-.strip-container {
-  overflow: hidden;
-  position: relative;
-  height: 8.7rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+.logo-slider {
   width: 100%;
-}
-
-.strip {
-  gap: 11rem;
-  display: flex;
+  overflow: hidden;
   white-space: nowrap;
-  animation: scrollText linear infinite;
+  position: relative;
 }
-
-.moving-text {
+.logo-track {
   display: flex;
-  align-items: center;
-  gap: 11rem;
+  gap: 100px; /* Отступ между логотипами */
+  animation: scroll 10s linear infinite;
+  width: max-content;
 }
-
 .image-moving {
-  width: auto;
-  height: 60%;
+  height: 50px; /* Регулируйте под свои размеры */
+  object-fit: contain;
 }
 
-@keyframes scrollText {
+@keyframes scroll {
   from {
-    transform: translateX(0%);
+      transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+      transform: translateX(-50%);
   }
 }
 
@@ -1338,6 +1342,14 @@ main {
 /* contacts */
 .main-contacts {
   position: relative;
+}
+.main-contacts .container {
+  position: relative;
+}
+.main-contacts .spot-one {
+  top: -15rem;
+  right: -30rem;
+  transform: rotate(40deg);
 }
 .fon-spot_contacts {
   top: -16rem;
@@ -1394,9 +1406,9 @@ main {
   justify-content: center;
   height: 4.7rem;
   width: 10.2rem;
-  transition: border .3s ease;
+  transition: border 0.3s ease;
 }
-.addresses-link:hover{
+.addresses-link:hover {
   border: 1px solid white;
 }
 .description-tel_title {
@@ -1416,9 +1428,9 @@ main {
 .description-tel_block {
   display: grid;
   gap: 1.2rem;
-  transition: color .3s ease;
+  transition: color 0.3s ease;
 }
-.description-tel_block a:hover{
+.description-tel_block a:hover {
   color: rgba(155, 157, 159, 1);
 }
 .contacts-addresses_bottom {
@@ -1545,6 +1557,12 @@ main {
   align-items: center;
   gap: 2.4rem;
 }
+#map{
+  display: flex;
+}  
+#map-mobile{
+  display: none;
+}
 @media (max-width: 48em) {
   .fon-spot_contacts {
     width: 58rem;
@@ -1633,7 +1651,17 @@ main {
     width: 6.4rem;
     height: 6.4rem;
   }
+  #map{
+    display: none;
+  }  
+  #map-mobile{
+    display: flex;
+  }
+  .main-services_content{
+    gap: 0;
+  }
 }
+
 
 /* footer */
 footer {
@@ -1663,7 +1691,7 @@ footer {
   color: rgba(155, 157, 159, 1);
   font-size: 1.4rem;
 }
-.footer-top_block-text:hover{
+.footer-top_block-text:hover {
   color: rgb(211, 211, 211);
 }
 .footer-content_main {
@@ -1682,8 +1710,8 @@ footer {
 .footer-main_block-item {
   color: rgba(155, 157, 159, 1);
 }
-.footer-main_block-item:hover{
-  color:rgb(211, 211, 211);
+.footer-main_block-item:hover {
+  color: rgb(211, 211, 211);
 }
 .footer-content_bottom {
   border: 1px solid rgba(56, 60, 64, 1);
@@ -1832,13 +1860,14 @@ footer {
   padding: 0 2.4rem;
   border: 1px solid rgba(255, 255, 255, 1);
   border-radius: 1.4rem;
-  transition: border-color .3s ease;
+  transition: border-color 0.3s ease;
 }
-.catalog-content_btn:hover{
+.catalog-content_btn:hover {
   border-color: rgba(155, 157, 159, 1);
 }
 .catalog-content_btn-active {
-  background: url("../../assest/image/catalog/spot-catalog.png") no-repeat top / cover;
+  background: url("../../assest/image/catalog/spot-catalog.png") no-repeat top /
+    cover;
 }
 .main-catalog_content {
   display: grid;
@@ -1941,7 +1970,7 @@ footer {
   padding: 4rem;
   border: 1px solid rgba(56, 60, 64, 1);
   border-radius: 2.4rem;
-  background: url("../../assest/image/catalog/spot3.png") no-repeat;
+  background: rgba(6, 11, 16, 1) url("../../assest/image/catalog/spot3.png") no-repeat;
 }
 .main-request_content-bottom {
   width: 84rem;
@@ -1963,11 +1992,14 @@ footer {
     margin-top: 15.5rem;
     margin-bottom: 4rem;
   }
-  .request_content-top_text{
+  .request_content-top_text {
     width: fit-content;
   }
   .main-catalog_content {
     gap: 3.2rem;
+  }
+  .catalog-content_top .text-align {
+    text-align: left;
   }
   .main-catalog {
     margin-bottom: 12.8rem;
@@ -2166,9 +2198,9 @@ footer {
   border: 1px solid rgba(255, 255, 255, 1);
   border-radius: 1.4rem;
   padding: 0 2.4rem;
-  transition: border-color .3s
+  transition: border-color 0.3s;
 }
-.productcard-btn:hover{
+.productcard-btn:hover {
   border-color: rgba(255, 255, 255, 0.6);
 }
 .productcard-btn_active {
@@ -2265,7 +2297,7 @@ footer {
   .left-specifications_content-line_more {
     white-space: nowrap;
   }
-  .left-specifications_content-line{
+  .left-specifications_content-line {
     align-items: end;
   }
   .productcard-btn {
@@ -2294,6 +2326,9 @@ footer {
   display: grid;
   gap: 5.6rem;
 }
+.contacts-opacity {
+  opacity: 0;
+}
 .contacts_block-top {
   display: grid;
   gap: 3rem;
@@ -2305,9 +2340,9 @@ footer {
 .contacts-block {
   display: grid;
   gap: 2rem;
-  transition: color .3s ease;
+  transition: color 0.3s ease;
 }
-.contacts-block a:hover{
+.contacts-block a:hover {
   color: rgba(255, 255, 255, 0.718);
 }
 .contacts-content_line {
@@ -2354,6 +2389,13 @@ footer {
 .main-news_top {
   display: grid;
   gap: 10rem;
+}
+.main-news_content .container{
+  position: relative;
+}
+.main-news_content .spot-one{
+  left: -40rem;
+  top: -40rem;
 }
 .main-news_content-left {
   display: flex;
@@ -2414,6 +2456,9 @@ footer {
     height: 60rem;
     border-radius: 3.2rem;
   }
+  .main-news_content .certificates-image2{
+    display: flex;
+  }
 }
 /* 404 */
 .main-404 {
@@ -2421,6 +2466,17 @@ footer {
   position: relative;
   margin: 2rem 2rem 20rem 2rem;
 }
+.main-404 .container{
+  position: relative;
+}
+.main-404 .project-spot_two {
+  height: 67rem;
+  right: -44rem;
+  transform: rotate(80deg);
+  width: 76rem;
+  top: 45rem;
+}
+
 .main-404_content {
   position: absolute;
   right: 13.9rem;
@@ -2461,9 +2517,9 @@ footer {
   display: grid;
   justify-items: center;
   gap: 2.4rem;
+  width: 52rem;
 }
 .certificates-content_block {
-
   position: relative;
   justify-content: center;
   display: flex;
@@ -2481,8 +2537,8 @@ footer {
   position: absolute;
   width: 84rem;
   height: 85rem;
-  left: -20rem;
-  top: 5rem;
+  left: -30rem;
+  top: 20rem;
   z-index: -1;
 }
 .certificates-image2 {
@@ -2493,6 +2549,9 @@ footer {
   top: -15rem;
   right: -35rem;
   transform: scaleX(-1);
+}
+.certificates-block_title{
+  text-align: center;
 }
 @media (max-width: 48em) {
   .image-certif {
@@ -2511,6 +2570,7 @@ footer {
     justify-items: center;
     gap: 4.8rem;
     height: fit-content;
+    width: 100%;
   }
   .certificates-content_block {
     display: grid;
@@ -2519,6 +2579,7 @@ footer {
   .certificates-block_title {
     border-bottom: 1px solid rgba(56, 60, 64, 1);
     padding-bottom: 4rem;
+    text-align: left;
   }
 }
 /* main-services */
@@ -2565,11 +2626,25 @@ footer {
   }
 }
 /* main-articles */
+.main-article .spot-one {
+  top: -20rem;
+  right: -18rem;
+}
+.main-article .container {
+  position: relative;
+}
 .main-articles {
   display: flex;
   align-items: center;
   justify-content: start;
   position: relative;
+}
+.main-articles .container {
+  position: relative;
+}
+.main-articles .articles-gz {
+  top: 65rem;
+  left: -32rem;
 }
 .main-articles_content {
   display: flex;
@@ -2605,8 +2680,10 @@ footer {
   gap: 9rem;
 }
 .article-content_top {
-  border: 1px solid rgba(56, 60, 64, 1);
-  border-radius: 2.4rem;
+  border-top: 1px solid rgba(56, 60, 64, 1);
+  border-left: 1px solid rgba(56, 60, 64, 1);
+  border-bottom: 1px solid rgba(56, 60, 64, 1);
+  border-radius: 2.4rem 0 0 2.4rem;
   width: 110%;
   max-height: 793px;
   padding: 5.2rem 0 5.2rem 6.3rem;
@@ -2646,6 +2723,11 @@ footer {
     display: grid;
     gap: 0;
   }
+  .main-article .spot-one {
+    top: 138rem;
+    right: -43rem;
+    transform: rotate(26deg);
+  }
   .articles_content-item {
     justify-items: start;
     padding: 8rem 0 8rem 0;
@@ -2669,6 +2751,8 @@ footer {
     max-height: fit-content;
     padding: 4rem;
     gap: 4rem;
+    border: 1px solid rgba(56, 60, 64, 1);
+    border-radius: 2.4rem;
   }
   .article-content_top .article-content_top-text {
     width: 100%;
@@ -2682,6 +2766,20 @@ footer {
   }
 }
 /* projects */
+.spot-one {
+  position: absolute;
+  width: 69rem;
+  height: 70rem;
+  z-index: -1;
+}
+.main-project .container {
+  position: relative;
+}
+.main-project .spot-one {
+  top: -20rem;
+  right: -18rem;
+}
+
 .main-projects_content {
   display: grid;
   gap: 4rem;
@@ -2843,6 +2941,7 @@ footer {
   left: -28rem;
   width: 69rem;
   height: 70rem;
+  z-index: -1;
 }
 .new-content_top-data {
   width: 40rem;
@@ -2882,6 +2981,13 @@ footer {
     width: 71rem;
     gap: 4.8rem;
   }
+  .sqop-top {
+    left: 47rem;
+    top: -36rem;
+    width: 56rem;
+    height: 58rem;
+    transform: rotate(30deg);
+  }
 }
 
 .mySwiper4 {
@@ -2894,7 +3000,7 @@ footer {
 
 .mySwiper4 .swiper-wrapper {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
 }
 .mySwiper4 .swiper-slide {
   width: auto !important;
@@ -2982,6 +3088,9 @@ footer {
   height: 100%;
   background-color: rgba(20, 20, 25, 0.6);
 }
+.modal-blur {
+  backdrop-filter: blur(10px);
+}
 .modal-content {
   position: relative;
   overflow: hidden;
@@ -3009,13 +3118,13 @@ footer {
 @media (max-width: 48em) {
   .modal-content {
     width: 71rem;
-    height: 108rem;
+    height: max-content;
     padding: 0;
   }
   .modal-content .productcard-bottom_right {
     padding: 6.4rem 3.6rem;
     width: 71rem;
-    height: 108rem;
+    height: fit-content;
   }
   .modal-content .main-request_content-bottom .request-form_bottom {
     gap: 5rem;
@@ -3032,6 +3141,15 @@ footer {
 }
 
 /* Отзывы */
+.main-reviews .container{
+  position: relative;
+}
+.main-reviews .articles-gz{
+  left: -40rem;
+  bottom: -48rem;
+  z-index: -2;
+}
+
 .main-reviews_content {
   display: grid;
   gap: 4rem;
@@ -3093,7 +3211,7 @@ footer {
   .main-reviews_content {
     gap: 8rem;
   }
-  .reviews-content_main{
+  .reviews-content_main {
     display: grid;
   }
   .reviews-content_main-item {
@@ -3184,11 +3302,22 @@ footer {
 
 .main-3dswiper .container {
   width: 153rem;
+  position: relative;
   /* display: grid; */
   /* justify-content: center; */
 }
-
-
+.main-3dswiper .project-spot_two {
+  height: 57rem;
+  right: -53rem;
+  transform: rotate(40deg);
+  width: 76rem;
+  top: 30rem;
+}
+.project-spot_two {
+  position: absolute;
+  width: 75rem;
+  height: 90rem;
+}
 #cloud9 {
   height: 83rem;
   overflow: hidden !important;
@@ -3199,7 +3328,7 @@ footer {
   position: relative;
 }
 .main-3dswiper::before {
-  height: 50%;
+  height: 30%;
   content: "";
   position: absolute;
   top: 0;
@@ -3226,7 +3355,7 @@ footer {
   height: 35rem;
   margin-left: -15rem;
 }
-#cloud9 .cloud9-item  {
+#cloud9 .cloud9-item {
   transition: width 0.4s ease, height 0.4s ease;
 }
 .modal-content_image {
@@ -3239,6 +3368,7 @@ footer {
 .modal-content_image .close {
   top: 3.2rem;
   right: 3.2rem;
+  position: absolute;
 }
 @media (max-width: 1025px) {
   #cloud9 {
@@ -3255,14 +3385,14 @@ footer {
     width: 71rem;
     height: 52rem;
   }
-  .cloud9-item{
+  .cloud9-item {
     width: 19rem;
     height: 13rem;
   }
-  .active-card  {
-   width: 35rem;
-   height: 20rem;
-   margin-left: -8rem;
+  .active-card {
+    width: 35rem;
+    height: 20rem;
+    margin-left: -8rem;
   }
   .modal-content_image {
     width: 67rem;
@@ -3270,6 +3400,9 @@ footer {
   }
   .main-3dswiper::before {
     height: 70%;
+  }
+  .main-3dswiper .project-spot_two{
+    display: none;
   }
 }
 

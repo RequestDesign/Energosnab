@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
       slidesPerView: "auto",
       spaceBetween: 32,
       navigation: {
-        nextEl: "#nextBtn",
-        prevEl: "#prevBtn",
+        nextEl: "#nextBtn2",
+        prevEl: "#prevBtn2",
       },
       grabCursor: true,
       breakpoints: {
@@ -145,112 +145,145 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   var myMap;
-  var myMap2;
+var myMap2;
+var myMapMobile;
 
-  window.onload = function () {
+window.onload = function () {
     ymaps.ready(function () {
-      if (document.getElementById("map")) {
-        init("moscow");
-      }
-      if (document.getElementById("map2")) {
-        initMap2();
-      }
+        if (document.getElementById("map")) {
+            init("moscow");
+        }
+        if (document.getElementById("map2")) {
+            initMap2();
+        }
+        if (document.getElementById("map-mobile")) {
+            initMobileMap("moscow");
+        }
     });
 
     function init(city) {
-      if (myMap) {
-        myMap.destroy();
-      }
-
-      var coordinates;
-      var addressText;
-      if (city === "moscow") {
-        coordinates = [55.975, 37.5165];
-        addressText =
-          "Московская область, г. Долгопрудный, ул. Заводская, дом 2";
-      } else if (city === "sochi") {
-        coordinates = [43.4231, 39.9257];
-        addressText = "г. Сочи, Адлерский район, ул. Гастелло, д. 42";
-      }
-
-      myMap = new ymaps.Map("map", {
-        center: coordinates,
-        zoom: 16,
-        controls: ["zoomControl"],
-      });
-
-      var myPlacemark = new ymaps.Placemark(
-        coordinates,
-        {},
-        {
-          iconImageSize: [30, 30],
-          iconImageOffset: [-15, -30],
+        if (myMap) {
+            myMap.destroy();
         }
-      );
-      myMap.geoObjects.add(myPlacemark);
 
-      var addressDiv = document.createElement("div");
-      addressDiv.className = "address-label";
-      addressDiv.innerHTML = addressText;
-
-      myMap.container.getElement().appendChild(addressDiv);
-
-      function updateAddressPosition() {
-        if (myMap.projection) {
-          var coords = myPlacemark.geometry.getCoordinates();
-          var pixelCoords = myMap.projection.toGlobalPixels(
-            coords,
-            myMap.getZoom()
-          );
-          addressDiv.style.left = pixelCoords[0] + "px";
-          addressDiv.style.top = pixelCoords[1] - 30 + "px";
+        var coordinates;
+        var addressText;
+        if (city === "moscow") {
+            coordinates = [55.975, 37.5165];
+            addressText = "Московская область, г. Долгопрудный, ул. Заводская, дом 2";
+        } else if (city === "sochi") {
+            coordinates = [43.4231, 39.9257];
+            addressText = "г. Сочи, Адлерский район, ул. Гастелло, д. 42";
         }
-      }
 
-      updateAddressPosition();
-      myPlacemark.events.add("drag", updateAddressPosition);
-      myPlacemark.events.add("dragend", updateAddressPosition);
+        myMap = new ymaps.Map("map", {
+            center: coordinates,
+            zoom: 16,
+            controls: ["zoomControl"],
+        });
+
+        var myPlacemark = new ymaps.Placemark(
+            coordinates,
+            {},
+            {
+                iconImageSize: [30, 30],
+                iconImageOffset: [-15, -30],
+            }
+        );
+        myMap.geoObjects.add(myPlacemark);
+
+        var addressDiv = document.createElement("div");
+        addressDiv.className = "address-label";
+        addressDiv.innerHTML = addressText;
+
+        myMap.container.getElement().appendChild(addressDiv);
+
+        function updateAddressPosition() {
+            if (myMap.projection) {
+                var coords = myPlacemark.geometry.getCoordinates();
+                var pixelCoords = myMap.projection.toGlobalPixels(
+                    coords,
+                    myMap.getZoom()
+                );
+                addressDiv.style.left = pixelCoords[0] + "px";
+                addressDiv.style.top = pixelCoords[1] - 30 + "px";
+            }
+        }
+
+        updateAddressPosition();
+        myPlacemark.events.add("drag", updateAddressPosition);
+        myPlacemark.events.add("dragend", updateAddressPosition);
     }
 
     function initMap2() {
-      if (myMap2) {
-        myMap2.destroy();
-      }
-
-      myMap2 = new ymaps.Map("map2", {
-        center: [43.4231, 39.9257],
-        zoom: 16,
-        controls: ["zoomControl"],
-      });
-
-      var myPlacemark2 = new ymaps.Placemark(
-        [43.4231, 39.9257],
-        {
-          hintContent: "Здесь мы находимся!",
-          balloonContent:
-            "Здесь находится офис: г. Сочи, Адлерский район, ул. Гастелло, д. 42",
-        },
-        {
-          preset: "islands#redIcon",
+        if (myMap2) {
+            myMap2.destroy();
         }
-      );
-      myMap2.geoObjects.add(myPlacemark2);
+
+        myMap2 = new ymaps.Map("map2", {
+            center: [43.4231, 39.9257],
+            zoom: 16,
+            controls: ["zoomControl"],
+        });
+
+        var myPlacemark2 = new ymaps.Placemark(
+            [43.4231, 39.9257],
+            {
+                hintContent: "Здесь мы находимся!",
+                balloonContent: "Здесь находится офис: г. Сочи, Адлерский район, ул. Гастелло, д. 42",
+            },
+            {
+                preset: "islands#redIcon",
+            }
+        );
+        myMap2.geoObjects.add(myPlacemark2);
+    }
+
+    function initMobileMap(city) {
+        if (myMapMobile) {
+            myMapMobile.destroy();
+        }
+
+        var coordinates;
+        if (city === "moscow") {
+            coordinates = [55.975, 37.5165];
+        } else if (city === "sochi") {
+            coordinates = [43.4231, 39.9257];
+        }
+
+        myMapMobile = new ymaps.Map("map-mobile", {
+            center: coordinates,
+            zoom: 16,
+            controls: ["zoomControl"],
+        });
+
+        var myPlacemarkMobile = new ymaps.Placemark(
+            coordinates,
+            {},
+            {
+                iconImageSize: [30, 30],
+                iconImageOffset: [-15, -30],
+            }
+        );
+        myMapMobile.geoObjects.add(myPlacemarkMobile);
     }
 
     document.querySelectorAll(".addresses-link").forEach((button) => {
-      button.addEventListener("click", function () {
-        document
-          .querySelectorAll(".addresses-link")
-          .forEach((btn) => btn.classList.remove("addresses-link_active"));
-        this.classList.add("addresses-link_active");
-        init(this.dataset.city);
+        button.addEventListener("click", function () {
+            document
+                .querySelectorAll(".addresses-link")
+                .forEach((btn) => btn.classList.remove("addresses-link_active"));
+            this.classList.add("addresses-link_active");
+            init(this.dataset.city);
+            initMobileMap(this.dataset.city); // Инициализация мобильной карты
 
-        if (this.dataset.city === "sochi" && document.getElementById("map2")) {
-          initMap2();
-        }
-      });
+            if (this.dataset.city === "sochi" && document.getElementById("map2")) {
+                initMap2();
+            }
+        });
     });
-  };
+};
+
 
   const buttons = document.querySelectorAll(".addresses-link");
   const descriptions = document.querySelectorAll(".addresses_top-description");
@@ -315,23 +348,8 @@ document.addEventListener("DOMContentLoaded", function () {
     inactiveButton.classList.remove("productcard-btn_active");
     activeButton.classList.add("productcard-btn_active");
   }
-  const strip = document.getElementById("strip");
-  const movingText = document.getElementById("movingText");
 
-  if (strip && movingText) {
-    movingText.innerHTML += movingText.innerHTML;
-    strip.style.width = `${movingText.scrollWidth}px`;
-
-    const setAnimationDuration = () => {
-      const speed = 30;
-      strip.style.animationDuration = `${
-        movingText.scrollWidth / (movingText.scrollWidth / speed)
-      }s`;
-    };
-
-    setAnimationDuration();
-    window.addEventListener("resize", setAnimationDuration);
-  }
+  
 
   const contentBlocks = document.querySelectorAll(
     ".content-rigth_block-p.services-hidden"
