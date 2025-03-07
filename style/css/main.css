@@ -1270,7 +1270,6 @@ main {
   gap: 14rem;
 }
 
-
 .logo-slider {
   width: 100%;
   overflow: hidden;
@@ -1290,10 +1289,10 @@ main {
 
 @keyframes scroll {
   from {
-      transform: translateX(0);
+    transform: translateX(0);
   }
   to {
-      transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 }
 
@@ -1557,10 +1556,10 @@ main {
   align-items: center;
   gap: 2.4rem;
 }
-#map{
+#map {
   display: flex;
-}  
-#map-mobile{
+}
+#map-mobile {
   display: none;
 }
 @media (max-width: 48em) {
@@ -1651,17 +1650,16 @@ main {
     width: 6.4rem;
     height: 6.4rem;
   }
-  #map{
+  #map {
     display: none;
-  }  
-  #map-mobile{
+  }
+  #map-mobile {
     display: flex;
   }
-  .main-services_content{
-    gap: 0;
+  .main-services_content {
+    gap: 5rem;
   }
 }
-
 
 /* footer */
 footer {
@@ -1970,7 +1968,8 @@ footer {
   padding: 4rem;
   border: 1px solid rgba(56, 60, 64, 1);
   border-radius: 2.4rem;
-  background: rgba(6, 11, 16, 1) url("../../assest/image/catalog/spot3.png") no-repeat;
+  background: rgba(6, 11, 16, 1) url("../../assest/image/catalog/spot3.png")
+    no-repeat;
 }
 .main-request_content-bottom {
   width: 84rem;
@@ -2357,6 +2356,21 @@ footer {
   width: 80rem;
   height: 52rem;
 }
+.main-baner_img video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.4rem;
+}
+.banner-media {
+  display: none; 
+}
+.banner-image {
+  display: block; 
+}
+.banner-video {
+  display: none; 
+}
 @media (max-width: 48em) {
   .main-title {
     margin-bottom: 8rem;
@@ -2380,6 +2394,12 @@ footer {
     height: 52rem;
     border-radius: 3.2rem;
   }
+  .contacts-opacity {
+    display: none;
+  }
+  .modal-text_none {
+    display: none;
+  }
 }
 /* news */
 .main-news {
@@ -2390,10 +2410,10 @@ footer {
   display: grid;
   gap: 10rem;
 }
-.main-news_content .container{
+.main-news_content .container {
   position: relative;
 }
-.main-news_content .spot-one{
+.main-news_content .spot-one {
   left: -40rem;
   top: -40rem;
 }
@@ -2456,7 +2476,7 @@ footer {
     height: 60rem;
     border-radius: 3.2rem;
   }
-  .main-news_content .certificates-image2{
+  .main-news_content .certificates-image2 {
     display: flex;
   }
 }
@@ -2466,7 +2486,7 @@ footer {
   position: relative;
   margin: 2rem 2rem 20rem 2rem;
 }
-.main-404 .container{
+.main-404 .container {
   position: relative;
 }
 .main-404 .project-spot_two {
@@ -2550,7 +2570,7 @@ footer {
   right: -35rem;
   transform: scaleX(-1);
 }
-.certificates-block_title{
+.certificates-block_title {
   text-align: center;
 }
 @media (max-width: 48em) {
@@ -3141,10 +3161,10 @@ footer {
 }
 
 /* Отзывы */
-.main-reviews .container{
+.main-reviews .container {
   position: relative;
 }
-.main-reviews .articles-gz{
+.main-reviews .articles-gz {
   left: -40rem;
   bottom: -48rem;
   z-index: -2;
@@ -3401,7 +3421,7 @@ footer {
   .main-3dswiper::before {
     height: 70%;
   }
-  .main-3dswiper .project-spot_two{
+  .main-3dswiper .project-spot_two {
     display: none;
   }
 }
