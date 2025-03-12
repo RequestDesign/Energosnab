@@ -1654,7 +1654,7 @@ main {
     display: none;
   }
   #map-mobile {
-    display: flex;
+    display: block;
   }
   .main-services_content {
     gap: 5rem;
@@ -2362,15 +2362,7 @@ footer {
   object-fit: cover;
   border-radius: 1.4rem;
 }
-.banner-media {
-  display: none; 
-}
-.banner-image {
-  display: block; 
-}
-.banner-video {
-  display: none; 
-}
+
 @media (max-width: 48em) {
   .main-title {
     margin-bottom: 8rem;

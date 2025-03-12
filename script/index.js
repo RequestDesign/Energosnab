@@ -144,18 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log('Блоки с классом "working-block_item" не найдены на странице.');
   }
 
-  document.getElementById("toggleMedia").addEventListener("click", function () {
-    let image = document.querySelector(".banner-image");
-    let video = document.querySelector(".banner-video");
 
-    if (image.style.display === "none") {
-      image.style.display = "block";
-      video.style.display = "none";
-    } else {
-      image.style.display = "none";
-      video.style.display = "block";
-    }
-  });
 
   var myMap;
   var myMap2;
@@ -173,106 +162,72 @@ document.addEventListener("DOMContentLoaded", function () {
         initMobileMap("moscow");
       }
     });
-
-    function init(city) {
+  
+    window.init = function (city) {
       if (myMap) {
         myMap.destroy();
       }
-
-      var coordinates;
-      var addressText;
+  
+      let coordinates, addressText;
       if (city === "moscow") {
         coordinates = [55.975, 37.5165];
-        addressText =
-          "Московская область, г. Долгопрудный, ул. Заводская, дом 2";
+        addressText = "Московская область, г. Долгопрудный, ул. Заводская, дом 2";
       } else if (city === "sochi") {
         coordinates = [43.4231, 39.9257];
         addressText = "г. Сочи, Адлерский район, ул. Гастелло, д. 42";
       }
-
+  
       myMap = new ymaps.Map("map", {
         center: coordinates,
         zoom: 16,
         controls: ["zoomControl"],
       });
-
-      var myPlacemark = new ymaps.Placemark(
-        coordinates,
-        {},
-        {
-          iconImageSize: [30, 30],
-          iconImageOffset: [-15, -30],
-        }
-      );
+  
+      let myPlacemark = new ymaps.Placemark(coordinates, {}, {
+        iconImageSize: [30, 30],
+        iconImageOffset: [-15, -30],
+      });
       myMap.geoObjects.add(myPlacemark);
-
-      var addressDiv = document.createElement("div");
-      addressDiv.className = "address-label";
-      addressDiv.innerHTML = addressText;
-
-      myMap.container.getElement().appendChild(addressDiv);
-
-      function updateAddressPosition() {
-        if (myMap.projection) {
-          var coords = myPlacemark.geometry.getCoordinates();
-          var pixelCoords = myMap.projection.toGlobalPixels(
-            coords,
-            myMap.getZoom()
-          );
-          addressDiv.style.left = pixelCoords[0] + "px";
-          addressDiv.style.top = pixelCoords[1] - 30 + "px";
-        }
-      }
-
-      updateAddressPosition();
-      myPlacemark.events.add("drag", updateAddressPosition);
-      myPlacemark.events.add("dragend", updateAddressPosition);
-    }
-
-    function initMap2() {
+    };
+  
+    window.initMap2 = function () {
       if (myMap2) {
         myMap2.destroy();
       }
-
+  
       myMap2 = new ymaps.Map("map2", {
         center: [43.4231, 39.9257],
         zoom: 16,
         controls: ["zoomControl"],
       });
-
-      var myPlacemark2 = new ymaps.Placemark(
+  
+      let myPlacemark2 = new ymaps.Placemark(
         [43.4231, 39.9257],
         {
           hintContent: "Здесь мы находимся!",
-          balloonContent:
-            "Здесь находится офис: г. Сочи, Адлерский район, ул. Гастелло, д. 42",
+          balloonContent: "г. Сочи, Адлерский район, ул. Гастелло, д. 42",
         },
         {
           preset: "islands#redIcon",
         }
       );
       myMap2.geoObjects.add(myPlacemark2);
-    }
-
-    function initMobileMap(city) {
+    };
+  
+    window.initMobileMap = function (city) {
       if (myMapMobile) {
         myMapMobile.destroy();
       }
-
-      var coordinates;
-      if (city === "moscow") {
-        coordinates = [55.975, 37.5165];
-      } else if (city === "sochi") {
-        coordinates = [43.4231, 39.9257];
-      }
-
+  
+      let coordinates = city === "moscow" ? [55.975, 37.5165] : [43.4231, 39.9257];
+  
       myMapMobile = new ymaps.Map("map-mobile", {
         center: coordinates,
         zoom: 16,
         controls: ["zoomControl"],
       });
-
-      var myPlacemarkMobile = new ymaps.Placemark(
+  
+      let myPlacemarkMobile = new ymaps.Placemark(
         coordinates,
         {},
         {
@@ -281,45 +236,44 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       );
       myMapMobile.geoObjects.add(myPlacemarkMobile);
-    }
+    };
+  
+    // Обработчик переключения карты и описаний
+    const buttons = document.querySelectorAll(".addresses-link");
+    const descriptions = document.querySelectorAll(".addresses_top-description");
+  
+    if (buttons.length > 0 && descriptions.length > 0) {
+      buttons.forEach((button, index) => {
+        button.addEventListener("click", function () {
+          buttons.forEach((btn) => btn.classList.remove("addresses-link_active"));
+          button.classList.add("addresses-link_active");
 
-    document.querySelectorAll(".addresses-link").forEach((button) => {
-      button.addEventListener("click", function () {
-        document
-          .querySelectorAll(".addresses-link")
-          .forEach((btn) => btn.classList.remove("addresses-link_active"));
-        this.classList.add("addresses-link_active");
-        init(this.dataset.city);
-        initMobileMap(this.dataset.city); // Инициализация мобильной карты
-
-        if (this.dataset.city === "sochi" && document.getElementById("map2")) {
-          initMap2();
-        }
-      });
-    });
-  };
-
-  const buttons = document.querySelectorAll(".addresses-link");
-  const descriptions = document.querySelectorAll(".addresses_top-description");
-
-  if (descriptions.length > 0) {
-    buttons.forEach((button, index) => {
-      button.addEventListener("click", function () {
-        buttons.forEach((btn) => btn.classList.remove("addresses-link_active"));
-        button.classList.add("addresses-link_active");
-
-        descriptions.forEach((desc) => {
-          if (desc) {
-            desc.classList.remove("addresses-top_description-active");
+          descriptions.forEach((desc) => {
+            if (desc) {
+              desc.classList.remove("addresses-top_description-active");
+            }
+          });
+  
+          if (descriptions[index]) {
+            descriptions[index].classList.add("addresses-top_description-active");
+          }
+  
+          // Проверяем, существует ли функция перед вызовом
+          if (typeof init === "function") {
+            init(this.dataset.city);
+          }
+  
+          if (document.getElementById("map-mobile") && typeof initMobileMap === "function") {
+            initMobileMap(this.dataset.city);
+          }
+  
+          if (this.dataset.city === "sochi" && document.getElementById("map2") && typeof initMap2 === "function") {
+            initMap2();
           }
         });
-
-        if (descriptions[index]) {
-          descriptions[index].classList.add("addresses-top_description-active");
-        }
       });
-    });
-  }
+    }
+  };
 
   document.querySelector(".burger-btn").addEventListener("click", function () {
     const menu = document.querySelector(".header-content_links");
