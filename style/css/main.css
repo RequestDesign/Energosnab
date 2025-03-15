@@ -729,21 +729,54 @@ main {
 .portfolio-top_title {
   width: 43rem;
 }
-.portfolio-item_btn {
+.portfolio-item_btn { 
   display: flex;
   align-items: center;
   gap: 1.6rem;
   margin-bottom: -2rem;
   height: auto;
-  transition: color 0.2s ease;
+  position: relative;
+  color: white;
+  font-size: 18px;
+  overflow: hidden;
+  transition: color 0.7s ease-in-out;
 }
-.portfolio-item_btn:hover {
+
+/* Эффект для текста */
+.portfolio-item_btn::before {
+  content: attr(data-text); /* Дублируем текст */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   color: rgba(224, 138, 18, 1);
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(0 100% 0 0); /* Скрываем текст */
+  transition: clip-path 0.7s ease-in-out;
 }
+
+/* При наведении текст плавно проявляется слева направо */
+.portfolio-item_btn:hover::before {
+  clip-path: inset(0 0 0 0);
+}
+
+/* SVG-путь (изначально белый) */
+.arr-port_svg path {
+  fill: white;
+  transition: fill 0.7s ease-in-out;
+}
+
+/* SVG-путь при наведении */
 .portfolio-item_btn:hover .arr-port_svg path {
   fill: rgba(224, 138, 18, 1);
-  /* display: none; */
 }
+
+
+
+
+
 /* .portfolio-item_btn:hover::after {
   content: "";
   display: inline-block;
@@ -1051,10 +1084,15 @@ main {
   border-radius: 2.4rem;
   display: block;
   transition: background 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 .services-main_item:hover {
+  opacity: 1;
   background: url("../../assest/image/main/services/areanda.png") no-repeat top /
     cover;
+    .portfolio-item_btn{
+      color: rgba(224, 138, 18, 1);
+    }
 }
 .services-item_top-block {
   padding: 2.3rem;
@@ -3451,5 +3489,57 @@ footer {
   .main-container .container {
     width: 172rem;
     margin: 0 auto;
+  }
+}
+
+/* requisites */
+.main-requisites{
+  margin-bottom: 7rem;
+}
+.requisites-content{
+  display: grid;
+  gap: 5.6rem;
+}
+.requisites-content_main{
+  display: flex;
+  gap: 6.8rem;
+}
+.requisites-content_main-block{
+  width: 84rem;
+  display: grid;
+  gap: 5rem;
+}
+.requisites-items{
+  width: 48rem;
+  height: fit-content;
+  display: flex;
+  gap: 8rem;
+}
+.requisites-items .contacts-block{
+  width: 25rem;
+}
+.requisites-item{
+  display: grid;
+  gap: 3rem;
+  height: fit-content;
+}
+@media (max-width:48em) {
+  .main-requisites{
+    margin-bottom: 16rem;
+  }
+  .requisites-content_main{
+    display: grid;
+    gap: 3.2rem;
+  }
+  .requisites-content_main-block{
+    width: 100%;
+  }
+  .requisites-items{
+    width: 100%;
+    display: grid;
+    gap: 4.8rem;
+  }
+  .requisites-items .contacts-block{
+    width: 100%;
   }
 }
